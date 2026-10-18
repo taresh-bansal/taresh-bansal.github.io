@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Behavioral security for LLM-integrated smart cities | Taresh Bansal</title>
+<meta name="description" content="Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.">
+<meta name="author" content="Taresh Bansal">
+<meta name="theme-color" content="#1c1c1e">
+<link rel="canonical" href="https://taresh-bansal.github.io/projects/smart-city-llm-security/">
+<meta property="og:url" content="https://taresh-bansal.github.io/projects/smart-city-llm-security/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taresh Bansal">
+<meta property="og:title" content="Behavioral security for LLM-integrated smart cities | Taresh Bansal">
+<meta property="og:description" content="Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.">
+<meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Taresh Bansal: machine learning for IoT security and efficient, on-device models">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Behavioral security for LLM-integrated smart cities | Taresh Bansal">
+<meta name="twitter:description" content="Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.">
+<meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta name="twitter:image:alt" content="Taresh Bansal: machine learning for IoT security and efficient, on-device models">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+<script src="/assets/js/theme.js"></script>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://taresh-bansal.github.io/#person",
+  "name": "Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/",
+  "email": "mailto:tareshbansal06@gmail.com",
+  "jobTitle": "M.E. Computer Science student and Teaching Assistant",
+  "affiliation": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "alumniOf": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "knowsAbout": [
+   "IoT Security",
+   "On-Device Deep Learning",
+   "Efficient Multimodal Models",
+   "Vision-Language Models",
+   "LLM Agents"
+  ],
+  "sameAs": [
+   "https://github.com/taresh-bansal",
+   "https://www.linkedin.com/in/taresh-bansal"
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Behavioral security for LLM-integrated smart cities | Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/projects/smart-city-llm-security/",
+  "description": "Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.",
+  "about": {
+   "@id": "https://taresh-bansal.github.io/#person"
+  }
+ }
+]
+</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">Taresh Bansal</a>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">About</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/projects/" aria-current="page">Projects</a></li>
+        <li><a href="/teaching/">Teaching</a></li>
+        <li><a href="/cv/">CV</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg></button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</header>
+<main id="content">
+  <div class="container post">
+    <p class="crumbs"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Projects</a></p>
+    <header class="post-header">
+      <h1 class="post-title">Behavioral security for LLM-integrated smart cities</h1>
+      <p class="post-description">Apr 2026</p>
+    </header>
+    <article class="case">
+      <div class="case-hero">
+        <p class="case-kicker">LLM security · Threat modeling</p>
+        <p class="case-headline">When an LLM's picture of the city stops matching the city</p>
+        <p class="case-lead">Cities are starting to let LLMs retime traffic signals, route traffic along corridors and answer residents. This work builds one threat model for these systems, names the gap they share, and proposes a framework of defenses for it.</p>
+      </div>
+    <ul class="impact-strip n3" aria-label="Key figures">
+      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">City layers analyzed</span></li>
+      <li class="impact-card"><span class="impact-value">4</span><span class="impact-label">Threats mapped</span></li>
+      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">Attack scenarios</span></li>
+    </ul>
+      <p class="report-title">Report: <cite>Cognitive-Physical State Integrity: A Behavioral Security Framework for LLM-Integrated Smart City Applications</cite> (Apr 2026)</p>
+      <section class="research-block"><h2>Problem</h2><p>Smart-city security checks that data arrives intact and from an authenticated sender. Once an LLM sits on the decision path, that is not enough: the model can act on a state that no longer matches physical reality or city policy while every cryptographic and network check still passes. This work calls the missing property <b>Cognitive-Physical State Integrity (CPSI)</b>; today no runtime mechanism verifies it. Three failure modes follow.</p>
+        <ul>
+          <li><b>Context integrity violation:</b> falsified telemetry passes authentication and still poisons the model's reasoning.</li>
+          <li><b>Trust amplification:</b> a low-level exploit, such as a Sybil vehicle cluster, is turned by the model into authoritative, city-scale guidance.</li>
+          <li><b>Behavioral state divergence:</b> deleted profiles or retired facts can be reconstructed, so the model's behavior drifts from the city's compliance claims.</li>
+        </ul></section>
+      <h2 class="sub-h">Architecture</h2>
+      <p>The analysis uses one generalized architecture for LLM integration across three layers of city operations, each grounded in a published or deployed reference system.</p>
+      <figure class="cpsi-fig">
+        <figcaption><b>Three layers of an LLM-integrated city.</b> In each layer, data flows from left to right; the highlighted step is the CPSI boundary, where the model's view of the city can stop matching reality.</figcaption>
+        <ol class="layers">
+          <li class="layer">
+            <div class="layer-head"><h3 class="layer-name">Global application</h3><span class="layer-scope">City scale</span></div>
+            <p class="layer-ref">Reference system: a resident-facing city AI concierge, such as Riverside's Rivy</p>
+            <ol class="flow" aria-label="Data flow"><li>Resident and operator queries, city databases</li><li>Profile assembly</li><li class="cpsi"><span class="cpsi-tag">CPSI boundary</span>Model weights and retrieval</li><li>Recommendations and civic guidance</li></ol>
+            <p class="layer-gap"><b>Where integrity breaks:</b> knowledge that was deleted or restricted can resurface, because unlearning left traces in the weights or because the model infers it again from surrounding context.</p>
+          </li>
+          <li class="layer">
+            <div class="layer-head"><h3 class="layer-name">Edge and fog</h3><span class="layer-scope">Corridor scale</span></div>
+            <p class="layer-ref">Reference system: V2X-LLM corridor routing (<a href="https://arxiv.org/abs/2503.02239" target="_blank" rel="noopener">Wu et al., 2025</a>)</p>
+            <ol class="flow" aria-label="Data flow"><li>Vehicles and roadside units</li><li>V2X channels (DSRC, C-V2X)</li><li class="cpsi"><span class="cpsi-tag">CPSI boundary</span>Roadside-unit aggregation</li><li>LLM reasoning</li><li>Corridor advisories and routing</li></ol>
+            <p class="layer-gap"><b>Where integrity breaks:</b> many semi-trusted, possibly Sybil, messages are flattened into one confident summary, so the suspicion attached to them never reaches the model.</p>
+          </li>
+          <li class="layer">
+            <div class="layer-head"><h3 class="layer-name">Perception and actuation</h3><span class="layer-scope">Intersection scale</span></div>
+            <p class="layer-ref">Reference system: LLM traffic-signal control such as LA-Light (<a href="https://arxiv.org/abs/2403.08337" target="_blank" rel="noopener">Wang et al., 2024</a>) and LLMLight (<a href="https://arxiv.org/abs/2312.16044" target="_blank" rel="noopener">Lai et al., 2024</a>)</p>
+            <ol class="flow" aria-label="Data flow"><li>Loop detectors and cameras</li><li>MQTT / CoAP telemetry</li><li class="cpsi"><span class="cpsi-tag">CPSI boundary</span>Tool APIs</li><li>LLM context window</li><li>Signal phase change</li></ol>
+            <p class="layer-gap"><b>Where integrity breaks:</b> structured telemetry becomes prompt text, and its origin, freshness and confidence are dropped on the way.</p>
+          </li>
+        </ol>
+      </figure>
+
+      <h2 class="sub-h">Threats</h2>
+      <p>Three classes of threat agent are considered: an <b>infrastructure adversary</b> with network access to weakly governed edge networks; a <b>malicious V2X participant</b> holding valid pseudonymous certificates, software-defined radios or a compromised roadside unit; and a <b>low-privilege or insider user</b> who needs nothing beyond legitimate access to a public or staff interface. Each threat is mapped to CWE and CAPEC, STRIDE and CIA, the OSI layer, MITRE ATT&amp;CK for ICS or ATLAS, and the relevant standard or regulation.</p>
+      <div class="table-wrap">
+      <table class="data-table threats">
+        <caption class="sr-only">Threats, how each one happens, and the frameworks it is mapped to</caption>
+        <thead><tr><th scope="col">Threat</th><th scope="col">How it happens</th><th scope="col">Mapped to</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><span class="tid">T1</span><span class="tn">Telemetry provenance collapse</span><span class="tl">Perception and actuation</span></th><td>False or replayed readings enter through exposed MQTT or CoAP ingress; tool APIs strip their origin and freshness when they become prompt text.</td><td class="map"><ul><li>CWE-345 · CAPEC-94</li><li>STRIDE: spoofing, tampering</li><li>CIA: integrity, availability</li><li>OSI: L7, L3/4</li><li>MITRE ATT&amp;CK for ICS T0813</li><li>NIST CSF PR.DS-6</li></ul></td></tr>
+          <tr><th scope="row"><span class="tid">T2</span><span class="tn">V2X Sybil trust amplification</span><span class="tl">Edge and fog</span></th><td>Forged safety messages from a Sybil cluster pass certificate checks, and the roadside-unit summary presents them to the LLM as consensus.</td><td class="map"><ul><li>CWE-290 · CAPEC-112</li><li>STRIDE: spoofing, elevation of privilege</li><li>CIA: integrity, availability</li><li>OSI: L7, L2</li><li>MITRE ATT&amp;CK T1565.002</li><li>ISO/SAE 21434</li></ul></td></tr>
+          <tr><th scope="row"><span class="tid">T3-A</span><span class="tn">Knowledge remanence after unlearning</span><span class="tl">Global application</span></th><td>Step-by-step reasoning prompts through a low-privilege staff copilot recover knowledge that editing or unlearning was meant to remove.</td><td class="map"><ul><li>CWE-200 · CAPEC-130</li><li>STRIDE: information disclosure</li><li>CIA: confidentiality, integrity</li><li>OSI: L7 and the human layer</li><li>MITRE ATLAS AML.T0044</li><li>NIST AI RMF Measure 2.1</li></ul></td></tr>
+          <tr><th scope="row"><span class="tid">T3-B</span><span class="tn">Shadow profiling</span><span class="tl">Global application</span></th><td>A deleted attribute is reconstructed from the context around it, such as routes and parking times, through the public concierge or a vendor API.</td><td class="map"><ul><li>CWE-203 · CAPEC-115</li><li>STRIDE: information disclosure</li><li>CIA: confidentiality</li><li>OSI: L7</li><li>MITRE ATLAS AML.T0031</li><li>GDPR Art. 17 (right to erasure)</li></ul></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2 class="sub-h">Attack scenarios</h2>
+      <p>Each scenario is traced end to end, from foothold to physical or legal impact.</p>
+      <section class="research-block"><h3>Signal starvation through MQTT replay</h3><p>An attacker replays high-occupancy readings into a weakly governed MQTT broker. The occupancy tool hands the LLM a flat sentence with no signature or timestamp; the model extends one green phase and justifies it fluently, and the cross street starves, delaying emergency vehicles.</p></section>
+      <section class="research-block"><h3>Corridor misrouting through a Sybil cluster</h3><p>Using valid pseudonymous certificates, an attacker broadcasts dozens of forged safety messages reporting a hazard. The roadside unit summarizes them as an incident reported by many vehicles, and the corridor LLM turns the summary into urgent rerouting advice that pushes traffic onto residential streets.</p></section>
+      <section class="research-block"><h3>Erasure failure through shadow profiling</h3><p>A resident's health label has been deleted on request, but the surrounding behavioral record has not been masked. Probing the public concierge about transit and parking patterns lets the model infer the deleted status and quietly bias its answers: a privacy violation without any database breach.</p></section>
+
+      <h2 class="sub-h">Proposed framework</h2>
+      <p>The proposal moves the security stack from checking messages to checking the model's behavioral state, with one mechanism per layer.</p>
+      <section class="research-block"><h3>1. Provenance-aware tool APIs</h3><p>Tools that fetch telemetry return signed metadata, freshness and source confidence with every value, so the prompt reads, for example, “occupancy 0.95; confidence low; unverified legacy source; stale”, and the model is conditioned to act on those constraints rather than on the bare number.</p></section>
+      <section class="research-block"><h3>2. Uncertainty-annotated aggregation at roadside units</h3><p>Aggregation keeps spatial and cryptographic conflict markers instead of collapsing them, carrying Sybil suspicion into the prompt so the corridor LLM weighs disputed reports as a skeptical adjudicator rather than amplifying them.</p></section>
+      <section class="research-block"><h3>3. Runtime behavioral verification</h3><p>Post-quantization verification and continuous, automated red-teaming probe the deployed model for knowledge that should be gone, with the goal of showing that erased data cannot be reconstructed from context, as the right to erasure requires.</p></section>
+
+      <h2 class="sub-h">Scope</h2>
+      <p>This is a threat model and a proposed research framework. It does not include an implementation or experiments, so it reports no measured results.</p>
+      <nav class="pager" aria-label="More case studies"><a href="/projects/csi-fall-detection/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>CSI-based fall detection</a><a href="/projects/flood-detection/">Flood detection from drone imagery<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
+    </article>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">&copy; 2026 Taresh Bansal.</div>
+</footer>
+</body>
+</html>
