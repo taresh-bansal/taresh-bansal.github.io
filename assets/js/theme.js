@@ -61,6 +61,7 @@
       var panel = document.getElementById(id);
       if (!panel) return;
       panelBtns[id] = btn;
+      btn.setAttribute("aria-controls", id);
       btn.setAttribute("aria-expanded", "false");
       btn.addEventListener("click", function () {
         var open = panel.classList.toggle("open");

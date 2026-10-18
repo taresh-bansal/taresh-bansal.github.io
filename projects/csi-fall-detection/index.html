@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CSI-based fall detection | Taresh Bansal</title>
-<meta name="description" content="Competing convolutional kernels for Wi-Fi CSI-based fall detection for disabled and elderly people: 98% accuracy and 89% F1 on a public dataset. IEEE Internet of Things Magazine, 2025.">
+<meta name="description" content="Competing convolutional kernels for device-free fall detection from Wi-Fi channel state information, for disabled and elderly people. Published in IEEE Internet of Things Magazine, 2025.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/csi-fall-detection/">
@@ -12,17 +12,18 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
 <meta property="og:title" content="CSI-based fall detection | Taresh Bansal">
-<meta property="og:description" content="Competing convolutional kernels for Wi-Fi CSI-based fall detection for disabled and elderly people: 98% accuracy and 89% F1 on a public dataset. IEEE Internet of Things Magazine, 2025.">
+<meta property="og:description" content="Competing convolutional kernels for device-free fall detection from Wi-Fi channel state information, for disabled and elderly people. Published in IEEE Internet of Things Magazine, 2025.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="CSI-based fall detection | Taresh Bansal">
-<meta name="twitter:description" content="Competing convolutional kernels for Wi-Fi CSI-based fall detection for disabled and elderly people: 98% accuracy and 89% F1 on a public dataset. IEEE Internet of Things Magazine, 2025.">
+<meta name="twitter:description" content="Competing convolutional kernels for device-free fall detection from Wi-Fi channel state information, for disabled and elderly people. Published in IEEE Internet of Things Magazine, 2025.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +66,7 @@
   "@type": "WebPage",
   "name": "CSI-based fall detection | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/csi-fall-detection/",
-  "description": "Competing convolutional kernels for Wi-Fi CSI-based fall detection for disabled and elderly people: 98% accuracy and 89% F1 on a public dataset. IEEE Internet of Things Magazine, 2025.",
+  "description": "Competing convolutional kernels for device-free fall detection from Wi-Fi channel state information, for disabled and elderly people. Published in IEEE Internet of Things Magazine, 2025.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -102,17 +103,12 @@
       <div class="case-hero">
         <p class="case-kicker">Wireless sensing · Time-series classification</p>
         <p class="case-headline">Detecting falls from Wi-Fi signals, without wearables</p>
-        <p class="case-lead">Wi-Fi channel state information (CSI) changes as people move, so falls can be detected without asking disabled or elderly people to wear a device.</p>
+        <p class="case-lead">Wi-Fi channel state information (CSI) changes as people move. This paper classifies those changes to detect falls of disabled and elderly people without any wearable device.</p>
         <div class="btn-row"><a class="btn btn-primary" href="https://doi.org/10.1109/MIOT.2025.3588213" target="_blank" rel="noopener">Read the paper (DOI)</a><a class="btn" href="/publications/#bibtex-fall">BibTeX</a></div>
       </div>
-    <ul class="impact-strip n3" aria-label="Key figures">
-      <li class="impact-card"><span class="impact-value">98%</span><span class="impact-label">Accuracy</span></li>
-      <li class="impact-card"><span class="impact-value">89%</span><span class="impact-label">F1 score</span></li>
-      <li class="impact-card"><span class="impact-value">~9%</span><span class="impact-label">Over prior state of the art</span></li>
-    </ul>
-      <section class="research-block"><h2>Problem</h2><p>Wearable fall detectors only work when they are worn and charged. CSI-based sensing offers a non-wearable alternative for disabled and elderly people.</p></section>
+      <section class="research-block"><h2>Problem</h2><p>Wearable fall detectors only work when they are worn and charged. A detector that reads the Wi-Fi signals already in the room has no such dependence.</p></section>
       <section class="research-block"><h2>Approach</h2><p>CSI streams are treated as time series and classified with randomly generated convolutional kernels, grouped into pattern dictionaries that compete with each other (“competing kernels”). Features come from hard and soft counting of kernel matches and from first-order differences of the signal.</p></section>
-      <section class="research-block"><h2>Results</h2><p>On a public dataset the method reports 98% accuracy and 89% F1, outperforming the prior state of the art by about 9%.</p></section>
+      <section class="research-block"><h2>Results</h2><p>On a public CSI dataset the method improves on the best previously reported F1 score.</p></section>
       <h2 class="sub-h">Publication</h2>
       <p>Siva Sai, <strong>Taresh Bansal</strong>, Vinay Chamola. “A Novel Competing Convolutional Kernels Method to CSI-Based Fall Detection for Disabled People.” <em>IEEE Internet of Things Magazine</em>, 2025. <a href="https://doi.org/10.1109/MIOT.2025.3588213" target="_blank" rel="noopener">doi.org/10.1109/MIOT.2025.3588213</a></p>
       <nav class="pager" aria-label="More case studies"><a href="/projects/plant-disease-edge/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Lightweight plant-disease recognition</a><a href="/projects/smart-city-llm-security/">Behavioral security for LLM-integrated smart cities<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>

@@ -22,7 +22,8 @@
 <meta name="twitter:description" content="Publications by Taresh Bansal: CSI-based fall detection (IEEE Internet of Things Magazine, 2025) and drift-resilient intrusion detection for IoMT networks (under review at IEEE Internet of Things Magazine).">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -125,11 +126,9 @@
   <div class="container post">
     <header class="post-header">
       <h1 class="post-title">Publications</h1>
-      <p class="post-description">Published and submitted papers, newest first.</p>
     </header>
     <div class="page-hero">
-      <p class="page-kicker">Research</p>
-      <p class="page-hero-lead">My papers apply machine learning to <strong>security</strong> and <strong>sensing</strong>: <strong>drift-resilient intrusion detection</strong> for medical networks, and <strong>device-free fall detection</strong> from Wi-Fi signals. One is published in IEEE Internet of Things Magazine (2025) and one is under review there.</p>
+      <p class="page-hero-lead">Two papers in <em>IEEE Internet of Things Magazine</em>, one published (2025) and one under review, from my earlier work on machine learning for connected devices: <strong>device-free fall detection</strong> from Wi-Fi signals and <strong>drift-resilient intrusion detection</strong> for medical networks.</p>
     </div>
     <h2 class="year">2026</h2>
     <ol class="bibliography">
@@ -143,8 +142,7 @@
           <div class="links">
             <button class="z" type="button" data-panel="pubs-iomt-abs">Abs</button>
           </div>
-          <hr class="pub-rule">
-          <div class="panel" id="pubs-iomt-abs"><p>An incremental intrusion detector for Internet of Medical Things (IoMT) network traffic. Adaptive Hoeffding trees with internal node reassessment let the model adapt as the traffic distribution shifts, instead of being retrained from scratch: each update takes 0.65 s, against 41.5 s to retrain NuSVC (a support-vector classifier) and 199 s for Isolation Forest. On the WUSTL-EHMS-2020 dataset it is 9.05 points more accurate than the best incremental baseline.</p></div>
+          <div class="panel" id="pubs-iomt-abs"><p>An incremental intrusion detector for Internet of Medical Things (IoMT) network traffic. Adaptive Hoeffding trees with internal node reassessment re-check earlier splits as new traffic arrives, so the model adapts to distribution shift by updating on the fly instead of being retrained from scratch. On the WUSTL-EHMS-2020 dataset it is more accurate than both the incremental and the batch-retrained baselines, and each update is faster than retraining any of the batch models.</p></div>
         </div>
       </article>
       </li>
@@ -163,8 +161,7 @@
             <button class="z" type="button" data-panel="pubs-fall-abs">Abs</button>
             <button class="z" type="button" data-panel="bibtex-fall">Bib</button>
           </div>
-          <hr class="pub-rule">
-          <div class="panel" id="pubs-fall-abs"><p>Detects falls from Wi-Fi channel state information (CSI), a non-wearable alternative for disabled and elderly people. Time series are classified with randomly generated convolutional kernels grouped into competing pattern dictionaries, using hard and soft counting and first-order differences. On a public dataset the method reports 98% accuracy and 89% F1, outperforming the prior state of the art by about 9%.</p></div>
+          <div class="panel" id="pubs-fall-abs"><p>Detects falls from Wi-Fi channel state information (CSI), a non-wearable alternative for disabled and elderly people. Time series are classified with randomly generated convolutional kernels grouped into competing pattern dictionaries, using hard and soft counting and first-order differences. Detects falls from Wi-Fi channel state information (CSI), a non-wearable alternative for disabled and elderly people. Time series are classified with randomly generated convolutional kernels grouped into competing pattern dictionaries, using hard and soft counting and first-order differences. On a public dataset the method improves on the best previously reported F1 score.</p></div>
           <div class="panel" id="bibtex-fall"><button class="copy" type="button" data-copy="bibtex-fall-text">Copy</button><pre id="bibtex-fall-text">@article{sai2025competing,
   author  = {Sai, Siva and Bansal, Taresh and Chamola, Vinay},
   title   = {A Novel Competing Convolutional Kernels Method to CSI-Based Fall Detection for Disabled People},

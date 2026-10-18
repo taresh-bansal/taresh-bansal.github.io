@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Drift-resilient IoMT intrusion detection | Taresh Bansal</title>
-<meta name="description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that update in 0.65 s instead of a 41.5 s retrain.">
+<meta name="description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that adapt to traffic drift by updating on the fly instead of retraining from scratch.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/iomt-intrusion-detection/">
@@ -12,17 +12,18 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
 <meta property="og:title" content="Drift-resilient IoMT intrusion detection | Taresh Bansal">
-<meta property="og:description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that update in 0.65 s instead of a 41.5 s retrain.">
+<meta property="og:description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that adapt to traffic drift by updating on the fly instead of retraining from scratch.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Drift-resilient IoMT intrusion detection | Taresh Bansal">
-<meta name="twitter:description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that update in 0.65 s instead of a 41.5 s retrain.">
+<meta name="twitter:description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that adapt to traffic drift by updating on the fly instead of retraining from scratch.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +66,7 @@
   "@type": "WebPage",
   "name": "Drift-resilient IoMT intrusion detection | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/iomt-intrusion-detection/",
-  "description": "Taresh Bansal's first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that update in 0.65 s instead of a 41.5 s retrain.",
+  "description": "Taresh Bansal's first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that adapt to traffic drift by updating on the fly instead of retraining from scratch.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -102,33 +103,19 @@
       <div class="case-hero">
         <p class="case-kicker">IoT security · Concept drift</p>
         <p class="case-headline">An intrusion detector that adapts as medical IoT traffic shifts</p>
-        <p class="case-lead">Internet of Medical Things (IoMT) devices produce network traffic whose patterns change over time, so a detector trained once goes stale. This work adapts the model incrementally: each update takes 0.65 s, where retraining NuSVC (a support-vector classifier) takes 41.5 s.</p>
+        <p class="case-lead">Internet of Medical Things (IoMT) devices produce network traffic whose patterns change over time, so a detector trained once goes stale. This work keeps the detector current by updating it incrementally as traffic arrives, instead of retraining it from scratch.</p>
         <div class="btn-row"><a class="btn" href="/publications/#iomt-drift-resilient-intrusion-detection">Publication entry</a></div>
       </div>
-    <ul class="impact-strip " aria-label="Key figures">
-      <li class="impact-card"><span class="impact-value">0.65 s</span><span class="impact-label">Per model update</span></li>
-      <li class="impact-card"><span class="impact-value">41.5 s</span><span class="impact-label">NuSVC retrain</span></li>
-      <li class="impact-card"><span class="impact-value">99.94%</span><span class="impact-label">Accuracy</span></li>
-      <li class="impact-card"><span class="impact-value">100%</span><span class="impact-label">Precision</span></li>
-    </ul>
-      <section class="research-block"><h2>Problem</h2><p>Attack detection on medical IoT devices, where traffic shifts over time and models go stale. Retraining a batch model on every shift is slow, which leaves a window in which the detector is out of date.</p></section>
-      <section class="research-block"><h2>Approach</h2><p>Adaptive Hoeffding trees with internal node reassessment. A Hoeffding tree grows incrementally from streaming data; reassessing internal nodes re-checks earlier splits as new data arrives, so the tree can adapt when the traffic distribution drifts. Trained on the WUSTL-EHMS-2020 dataset after cleaning, with attack classes balanced by SMOTE oversampling.</p></section>
-      <section class="research-block"><h2>Results</h2><p>Each model update takes 0.65 s, against 41.5 s to retrain NuSVC (a support-vector classifier) and 199 s for Isolation Forest. The model reaches 99.94% accuracy, 9.05 points above the best incremental baseline, at 100% precision.</p></section>
-      <figure class="fig">
-        <figcaption><b>Time per model update</b>, in seconds: incremental update vs. full batch retraining. Shorter is better.</figcaption>
-        <ul class="bars">
-          <li><span class="lab"><b>This work</b> (adaptive Hoeffding tree, incremental)</span><span class="track"><span class="fill mine" style="--w:calc((100% - 4rem) * 0.65 / 199)"></span><span class="val">0.65 s</span></span></li>
-          <li><span class="lab">NuSVC, full retrain</span><span class="track"><span class="fill" style="--w:calc((100% - 4rem) * 41.5 / 199)"></span><span class="val">41.5 s</span></span></li>
-          <li><span class="lab">Isolation Forest</span><span class="track"><span class="fill" style="--w:calc(100% - 4rem)"></span><span class="val">199 s</span></span></li>
-        </ul>
-      </figure>
+      <section class="research-block"><h2>Problem</h2><p>Retraining a batch model every time medical IoT traffic shifts is slow, and until it finishes the detector is out of date.</p></section>
+      <section class="research-block"><h2>Approach</h2><p>Adaptive Hoeffding trees with internal node reassessment. A Hoeffding tree grows incrementally from streaming data; reassessing internal nodes re-checks earlier splits as new data arrives, so the tree can adapt when the traffic distribution drifts. The model learns from the WUSTL-EHMS-2020 dataset as a stream, after cleaning, with the attack class balanced by SMOTE oversampling.</p></section>
+      <section class="research-block"><h2>Results</h2><p>On WUSTL-EHMS-2020 the model is more accurate than every incremental baseline and every batch-retrained baseline, and it raises no false alarms on the test set. Each update is faster than retraining any of the batch models, so the detector keeps pace with the traffic instead of falling behind it.</p></section>
       <h2 class="sub-h">Publication</h2>
       <p><strong>Taresh Bansal</strong>, Siva Sai, Vinay Chamola, Mohan Gurusamy. “Drift-Resilient Intrusion Detection in IoMT Networks Using Adaptive Hoeffding Trees with Internal Node Reassessment.” Under review at <em>IEEE Internet of Things Magazine</em>, submitted Sep 2026.</p>
       <h2 class="sub-h">Methods and data</h2>
       <dl class="facts">
         <dt>Model</dt><dd>Adaptive Hoeffding trees with internal node reassessment</dd>
         <dt>Data</dt><dd>WUSTL-EHMS-2020, cleaned; classes balanced with SMOTE oversampling</dd>
-        <dt>Baselines</dt><dd>Incremental learners; NuSVC (a support-vector classifier) and Isolation Forest with batch retraining</dd>
+        <dt>Baselines</dt><dd>Incremental learners (Perceptron, Half-Space Trees, logistic regression, one-class SVM); batch models retrained from scratch (Lasso, NuSVC, Isolation Forest)</dd>
       </dl>
       <nav class="pager" aria-label="More case studies"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>All projects</a><a href="/projects/plant-disease-edge/">Lightweight plant-disease recognition<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
     </article>

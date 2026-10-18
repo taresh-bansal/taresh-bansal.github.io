@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ask My Warehouse | Taresh Bansal</title>
-<meta name="description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from 541,909 retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
+<meta name="description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from the UCI Online Retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/ask-my-warehouse/">
@@ -12,17 +12,18 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
 <meta property="og:title" content="Ask My Warehouse | Taresh Bansal">
-<meta property="og:description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from 541,909 retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
+<meta property="og:description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from the UCI Online Retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Ask My Warehouse | Taresh Bansal">
-<meta name="twitter:description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from 541,909 retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
+<meta name="twitter:description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from the UCI Online Retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,7 +66,7 @@
   "@type": "WebPage",
   "name": "Ask My Warehouse | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/ask-my-warehouse/",
-  "description": "Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from 541,909 retail transactions, served through an MCP server to a LangChain agent with three-layer access control.",
+  "description": "Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from the UCI Online Retail transactions, served through an MCP server to a LangChain agent with three-layer access control.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -102,38 +103,23 @@
       <div class="case-hero">
         <p class="case-kicker">Data engineering · LLM agents</p>
         <p class="case-headline">Plain-English questions over a real data warehouse</p>
-        <p class="case-lead">Ask business questions in plain English and get answers from a real data warehouse, with the SQL shown, role-based access, and human approval for every data change.</p>
+        <p class="case-lead">An LLM agent that answers business questions in plain English from a real data warehouse, shows the SQL it ran, respects role-based access, and asks a human before changing any data.</p>
         <div class="btn-row"><a class="btn btn-primary" href="https://github.com/taresh-bansal/ask-my-warehouse" target="_blank" rel="noopener">Code on GitHub</a></div>
       </div>
-    <ul class="impact-strip " aria-label="Key figures">
-      <li class="impact-card"><span class="impact-value">541,909</span><span class="impact-label">Raw transactions</span></li>
-      <li class="impact-card"><span class="impact-value">16</span><span class="impact-label">Data-quality checks</span></li>
-      <li class="impact-card"><span class="impact-value">8</span><span class="impact-label">Verified metrics</span></li>
-      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">Security layers</span></li>
-    </ul>
       <h2 class="sub-h">How it works</h2>
       <ol class="pipeline">
-        <li><span class="step">1</span><span><b>PySpark ETL</b><span class="d">Cleans 541,909 raw transactions (UCI Online Retail) with an explicit schema. Duplicates are removed, non-sales rows are quarantined with a reason, and 16 automatic checks stop the pipeline if anything is off.</span></span></li>
+        <li><span class="step">1</span><span><b>PySpark ETL</b><span class="d">Cleans the raw UCI Online Retail transactions with an explicit schema. Exact duplicates are removed; stock write-offs, zero-price giveaways and accounting adjustments are quarantined in a <code>rejects</code> table with a reason; and automatic data-quality checks stop the pipeline if anything is off.</span></span></li>
         <li><span class="step">2</span><span><b>PostgreSQL star schema</b><span class="d">One fact table at invoice-line grain, four dimensions, surrogate keys, an “Unknown customer” row and a full calendar dimension.</span></span></li>
         <li><span class="step">3</span><span><b>MCP server</b><span class="d">Runs as the logged-in database user and exposes tools per role: discovery, read-only SELECT, CSV export, verified metrics and approval-gated admin fixes.</span></span></li>
         <li><span class="step">4</span><span><b>LangChain agent</b><span class="d">Answers through the MCP tools only. Gemini first; if a call fails, the same call is retried on a local Ollama model.</span></span></li>
         <li><span class="step">5</span><span><b>Web app</b><span class="d">FastAPI and one HTML page: chat with tables and charts, parallel conversations, and a workbook of pinned answers that refresh straight from the database.</span></span></li>
       </ol>
 
-      <h2 class="sub-h">Data cleaning</h2>
-      <table class="data-table">
-        <thead><tr><th scope="col">Step</th><th scope="col" class="num">Rows</th></tr></thead>
-        <tbody>
-          <tr><td>Raw data</td><td class="num">541,909</td></tr>
-          <tr><td>Exact duplicates removed</td><td class="num">5,268</td></tr>
-          <tr><td>Quarantined in <code>rejects</code> (stock write-offs, zero-price giveaways, accounting adjustments)</td><td class="num">2,513</td></tr>
-          <tr class="total"><td>Rows in <code>fact_sales</code></td><td class="num">534,128</td></tr>
-        </tbody>
-      </table>
-      <p>Standard business numbers come from 8 verified metrics assembled from fixed, tested SQL pieces; anything else is labeled as custom SQL and shown to the user. The metrics were checked against independent queries: £9,737,069.01 net revenue and 19,959 orders.</p>
+      <h2 class="sub-h">Verified metrics</h2>
+      <p>Standard business figures come from a fixed set of verified metrics assembled from tested SQL pieces, and each metric was checked against an independent query. Anything else is labeled as custom SQL and shown to the user.</p>
 
       <h2 class="sub-h">Security in three layers</h2>
-      <section class="research-block"><h3>1. Database</h3><p>PostgreSQL roles with column-level grants. Analyst logins are read-only, with a 10-second statement timeout.</p></section>
+      <section class="research-block"><h3>1. Database</h3><p>PostgreSQL roles with column-level grants. Analyst logins are read-only and run under a short statement timeout.</p></section>
       <section class="research-block"><h3>2. Tools</h3><p>The MCP server offers each role only its own tools; admin tools exist only for the admin role.</p></section>
       <section class="research-block"><h3>3. Human approval</h3><p>Every admin change pauses for a human yes or no and is written together with its audit-log row in one transaction. The approval goes into a parameter the AI cannot set, so the AI cannot approve its own change; if no human can be asked, nothing changes.</p></section>
 

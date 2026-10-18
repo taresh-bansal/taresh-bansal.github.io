@@ -22,7 +22,8 @@
 <meta name="twitter:description" content="Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,11 +105,6 @@
         <p class="case-headline">When an LLM's picture of the city stops matching the city</p>
         <p class="case-lead">Cities are starting to let LLMs retime traffic signals, route traffic along corridors and answer residents. This work builds one threat model for these systems, names the gap they share, and proposes a framework of defenses for it.</p>
       </div>
-    <ul class="impact-strip n3" aria-label="Key figures">
-      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">City layers analyzed</span></li>
-      <li class="impact-card"><span class="impact-value">4</span><span class="impact-label">Threats mapped</span></li>
-      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">Attack scenarios</span></li>
-    </ul>
       <p class="report-title">Report: <cite>Cognitive-Physical State Integrity: A Behavioral Security Framework for LLM-Integrated Smart City Applications</cite> (Apr 2026)</p>
       <section class="research-block"><h2>Problem</h2><p>Smart-city security checks that data arrives intact and from an authenticated sender. Once an LLM sits on the decision path, that is not enough: the model can act on a state that no longer matches physical reality or city policy while every cryptographic and network check still passes. This work calls the missing property <b>Cognitive-Physical State Integrity (CPSI)</b>; today no runtime mechanism verifies it. Three failure modes follow.</p>
         <ul>

@@ -6,7 +6,7 @@ Plain static HTML, no build step (`.nojekyll` makes GitHub Pages serve the files
 
 | Path | Page |
 |---|---|
-| `index.html` | About: bio, highlights, news, selected publications |
+| `index.html` | About: bio, selected publications, contact |
 | `publications/` | Publications with summaries and BibTeX |
 | `projects/` | Project index; one case-study page per project in `projects/<slug>/` |
 | `teaching/` | Teaching-assistant appointments |
