@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fault-tolerant ticket booking on Raft | Taresh Bansal</title>
-<meta name="description" content="Fault-tolerant movie-ticket booking on Raft: a 3-node cluster over gRPC with leader election, log replication of bookings and automatic leader failover, plus a local Transformers FAQ assistant.">
+<meta name="description" content="Fault-tolerant movie-ticket booking: a 3-node Raft cluster over gRPC with leader election, log replication and automatic failover, on top of gRPC booking, admin and assistant services with per-show locking and integration tests against overbooking.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/raft-ticket-booking/">
@@ -12,14 +12,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
 <meta property="og:title" content="Fault-tolerant ticket booking on Raft | Taresh Bansal">
-<meta property="og:description" content="Fault-tolerant movie-ticket booking on Raft: a 3-node cluster over gRPC with leader election, log replication of bookings and automatic leader failover, plus a local Transformers FAQ assistant.">
+<meta property="og:description" content="Fault-tolerant movie-ticket booking: a 3-node Raft cluster over gRPC with leader election, log replication and automatic failover, on top of gRPC booking, admin and assistant services with per-show locking and integration tests against overbooking.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: machine learning for IoT security and efficient, on-device models">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fault-tolerant ticket booking on Raft | Taresh Bansal">
-<meta name="twitter:description" content="Fault-tolerant movie-ticket booking on Raft: a 3-node cluster over gRPC with leader election, log replication of bookings and automatic leader failover, plus a local Transformers FAQ assistant.">
+<meta name="twitter:description" content="Fault-tolerant movie-ticket booking: a 3-node Raft cluster over gRPC with leader election, log replication and automatic failover, on top of gRPC booking, admin and assistant services with per-show locking and integration tests against overbooking.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: machine learning for IoT security and efficient, on-device models">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
@@ -64,7 +64,7 @@
   "@type": "WebPage",
   "name": "Fault-tolerant ticket booking on Raft | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/raft-ticket-booking/",
-  "description": "Fault-tolerant movie-ticket booking on Raft: a 3-node cluster over gRPC with leader election, log replication of bookings and automatic leader failover, plus a local Transformers FAQ assistant.",
+  "description": "Fault-tolerant movie-ticket booking: a 3-node Raft cluster over gRPC with leader election, log replication and automatic failover, on top of gRPC booking, admin and assistant services with per-show locking and integration tests against overbooking.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -100,26 +100,33 @@
     <article class="case">
       <div class="case-hero">
         <p class="case-kicker">Distributed systems · Consensus</p>
-        <p class="case-headline">Bookings that survive a leader failure</p>
-        <p class="case-lead">A movie-ticket booking system replicated across a 3-node cluster with the Raft consensus protocol, so every node agrees on the bookings and the service keeps running when the leader fails.</p>
-        <div class="btn-row"><a class="btn" href="mailto:tareshbansal06@gmail.com?subject=Raft%20ticket%20booking%20code">Code available on request</a></div>
+        <p class="case-headline">Bookings that survive a leader failure and never oversell</p>
+        <p class="case-lead">A movie-ticket booking system replicated across a 3-node cluster with the Raft consensus protocol, so every node agrees on the bookings and the service keeps running when the leader fails. Underneath, a gRPC booking service with per-show locking guarantees that concurrent clients never take the same seat.</p>
+        <div class="btn-row"><a class="btn btn-primary" href="https://github.com/taresh-bansal/ticket-booking-system" target="_blank" rel="noopener">Code (booking service)</a><a class="btn" href="mailto:tareshbansal06@gmail.com?subject=Raft%20ticket%20booking%20code">Full Raft implementation available on request</a></div>
       </div>
-    <ul class="impact-strip n1" aria-label="Key figures">
+    <ul class="impact-strip n2" aria-label="Key figures">
       <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">Raft nodes</span></li>
+      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">gRPC services</span></li>
     </ul>
-      <section class="research-block"><h2>Problem</h2><p>A booking service on a single server stops when that server fails, and replicas that disagree can sell the same seat twice. The bookings need one agreed order across machines.</p></section>
-      <section class="research-block"><h2>What I built</h2><ul>
+      <section class="research-block"><h2>Problem</h2><p>A booking service on a single server stops when that server fails, and replicas that disagree can sell the same seat twice. Even on one server, clients reserving seats at the same moment can oversell a show. The bookings need one agreed order across machines and safe updates within each machine.</p></section>
+      <h2 class="sub-h">Raft layer</h2>
+      <section class="research-block"><h3>What I built</h3><ul>
           <li>A 3-node cluster whose nodes talk over gRPC, with the Raft messages defined in Protocol Buffers.</li>
           <li>Leader election with randomized election timeouts and RequestVote RPCs.</li>
           <li>Log replication of bookings from the leader to the followers through AppendEntries, which also serve as heartbeats.</li>
           <li>Automatic failover: when the leader fails, the remaining nodes elect a new leader and booking continues.</li>
           <li>Clients routed to the current leader, and an application server that applies bookings from the replicated log.</li>
-          <li>A local Hugging Face Transformers question-answering model that answers booking FAQs without an external API.</li>
         </ul></section>
+      <h2 class="sub-h">Booking service</h2>
+      <section class="research-block"><h3>Services</h3><p>Three gRPC services defined in Protocol Buffers. <em>BookingService</em> lists shows, reports seats, reserves and cancels bookings, and streams seat-availability updates. <em>AdminService</em> adds and updates shows, lists bookings, resets data and launches concurrent-booking simulations. <em>LLMService</em> answers user questions.</p></section>
+      <section class="research-block"><h3>Concurrency</h3><p>Each show has its own re-entrant lock, held while checking availability, decrementing seats and creating the booking, so two clients cannot both take the last seat. Cancellations return seats under the same lock.</p></section>
+      <section class="research-block"><h3>Testing</h3><p>An admin RPC runs many simulated clients at once in a thread pool. Integration tests use it to check, for example, that 10 clients competing for 5 seats confirm at most 5 bookings and never drive availability below zero.</p></section>
+      <section class="research-block"><h3>Assistant</h3><p>Common questions are answered from a small FAQ map; other questions go to a local Hugging Face Transformers model (FLAN-T5 small by default), so no external API is needed.</p></section>
       <h2 class="sub-h">Stack</h2>
-      <p>Python, gRPC, Protocol Buffers, Raft consensus, Hugging Face Transformers.</p>
-      <p class="note">Completed Oct – Nov 2025. Code available on request.</p>
-      <nav class="pager" aria-label="More case studies"><a href="/projects/ask-my-warehouse/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Ask My Warehouse</a><a href="/projects/grpc-ticket-booking/">Concurrent ticket booking with gRPC<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
+      <p>Python, gRPC, Protocol Buffers, Raft consensus, pytest, Hugging Face Transformers. Command-line clients for users, admins and the assistant.</p>
+      <h2 class="sub-h">Code</h2>
+      <p>The booking service is <a href="https://github.com/taresh-bansal/ticket-booking-system" target="_blank" rel="noopener">on GitHub</a>. The full Raft implementation is available on request.</p>
+      <nav class="pager" aria-label="More case studies"><a href="/projects/ask-my-warehouse/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Ask My Warehouse</a><a href="/projects/">All projects<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
     </article>
   </div>
 </main>

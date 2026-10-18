@@ -16,5 +16,6 @@ Plain static HTML, no build step (`.nojekyll` makes GitHub Pages serve the files
 | `assets/js/theme.js` | Theme toggle, mobile menu, summary/BibTeX toggles |
 | `assets/Taresh_Bansal_CV.pdf` | Academic CV |
 | `assets/img/og-card.png` | 1200x630 social preview image |
+| `assets/img/apple-touch-icon.png` | 180x180 home-screen icon |
 
 Links are root-relative (`/projects/`), so preview locally with a server from the repo root, e.g. `python3 -m http.server 8000`, then open http://localhost:8000/.
