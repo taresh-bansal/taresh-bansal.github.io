@@ -104,7 +104,6 @@
         <p class="case-kicker">Multimodal AI · Medical imaging</p>
         <p class="case-headline">Do medical AI models actually look at the X-ray?</p>
         <p class="case-lead">Models that write chest X-ray reports are graded on how closely their report matches the radiologist&#x27;s. That grade cannot tell whether the model looked at the image: a convincing report can be written from what patients usually look like. This study tests image use directly, by changing the image and watching what happens to the report.</p>
-        <div class="btn-row"><a class="btn btn-primary" href="https://github.com/Toast24/medical-vlm-gap" target="_blank" rel="noopener">Code on GitHub</a><a class="btn" href="https://github.com/Toast24/medical-vlm-gap/blob/master/docs/PROJECT_A_RESULTS.md" target="_blank" rel="noopener">Results summary</a></div>
       </div>
       <section class="research-block"><h2>Problem</h2><p>Report-agreement scores reward a fluent, typical-looking report whether or not it came from the image. A model can score well while largely ignoring the X-ray, and standard evaluation has no way to tell.</p></section>
       <section class="research-block"><h2>Approach</h2><p>Controlled interventions on the image, with the prompt, decoding and patient held fixed. Each model writes a report under five conditions:</p>
