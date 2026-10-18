@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask My Warehouse | Taresh Bansal</title>
+<meta name="description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from 541,909 retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
+<meta name="author" content="Taresh Bansal">
+<meta name="theme-color" content="#1c1c1e">
+<link rel="canonical" href="https://taresh-bansal.github.io/projects/ask-my-warehouse/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taresh Bansal">
+<meta property="og:title" content="Ask My Warehouse | Taresh Bansal">
+<meta property="og:description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from 541,909 retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
+<meta property="og:url" content="https://taresh-bansal.github.io/projects/ask-my-warehouse/">
+<meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Taresh Bansal: machine learning for IoT security and edge devices">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ask My Warehouse | Taresh Bansal">
+<meta name="twitter:description" content="Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from 541,909 retail transactions, served through an MCP server to a LangChain agent with three-layer access control.">
+<meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+<script src="/assets/js/theme.js"></script>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://taresh-bansal.github.io/#person",
+  "name": "Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/",
+  "email": "mailto:tareshbansal06@gmail.com",
+  "image": "https://taresh-bansal.github.io/assets/img/og-card.png",
+  "jobTitle": "M.E. Computer Science student and Teaching Assistant",
+  "affiliation": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "alumniOf": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "knowsAbout": [
+   "IoT Security",
+   "On-Device Deep Learning",
+   "Efficient Multimodal Models",
+   "Vision-Language Models",
+   "LLM Agents"
+  ],
+  "sameAs": [
+   "https://github.com/taresh-bansal",
+   "https://www.linkedin.com/in/taresh-bansal"
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Ask My Warehouse | Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/projects/ask-my-warehouse/",
+  "description": "Ask My Warehouse: natural-language analytics over a PostgreSQL star schema built with PySpark from 541,909 retail transactions, served through an MCP server to a LangChain agent with three-layer access control.",
+  "about": {
+   "@id": "https://taresh-bansal.github.io/#person"
+  }
+ }
+]
+</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">Taresh Bansal</a>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">About</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/projects/" aria-current="page">Projects</a></li>
+        <li><a href="/teaching/">Teaching</a></li>
+        <li><a href="/cv/">CV</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg></button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</header>
+<main id="content">
+  <div class="container post">
+    <p class="crumbs"><a href="/projects/">← Projects</a></p>
+    <header class="post-header">
+      <h1 class="post-title">Ask My Warehouse</h1>
+      <p class="post-description">Engineering · Aug – Sep 2026</p>
+    </header>
+    <article class="case">
+      <div class="case-hero">
+        <p class="case-kicker">Engineering · Data and LLM agents</p>
+        <h2 class="case-headline">Plain-English questions over a real data warehouse</h2>
+        <p class="case-lead">Ask business questions in plain English and get answers from a real data warehouse, with the SQL shown, role-based access, and human approval for every data change.</p>
+        <div class="btn-row"><a class="btn btn-primary" href="https://github.com/taresh-bansal/ask-my-warehouse" target="_blank" rel="noopener">Code on GitHub</a></div>
+      </div>
+    <ul class="impact-strip " aria-label="Highlights">
+      <li class="impact-card"><span class="impact-value">541,909</span><span class="impact-label">Raw retail transactions</span></li>
+      <li class="impact-card"><span class="impact-value">16</span><span class="impact-label">Automatic data-quality checks</span></li>
+      <li class="impact-card"><span class="impact-value">8</span><span class="impact-label">Verified business metrics</span></li>
+      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">Layers of access control</span></li>
+    </ul>
+      <h2>How it works</h2>
+      <ol class="pipeline">
+        <li><span class="step">1</span><span><b>PySpark ETL</b><span class="d">Cleans 541,909 raw transactions (UCI Online Retail) with an explicit schema. Duplicates are removed, non-sales rows are quarantined with a reason, and 16 automatic checks stop the pipeline if anything is off.</span></span></li>
+        <li><span class="step">2</span><span><b>PostgreSQL star schema</b><span class="d">One fact table at invoice-line grain, four dimensions, surrogate keys, an “Unknown customer” row and a full calendar dimension.</span></span></li>
+        <li><span class="step">3</span><span><b>MCP server</b><span class="d">Runs as the logged-in database user and exposes tools per role: discovery, read-only SELECT, CSV export, verified metrics and approval-gated admin fixes.</span></span></li>
+        <li><span class="step">4</span><span><b>LangChain agent</b><span class="d">Answers through the MCP tools only. Gemini first; if a call fails, the same call is retried on a local Ollama model.</span></span></li>
+        <li><span class="step">5</span><span><b>Web app</b><span class="d">FastAPI and one HTML page: chat with tables and charts, parallel conversations, and a workbook of pinned answers that refresh straight from the database.</span></span></li>
+      </ol>
+
+      <h2>Data cleaning</h2>
+      <table class="data-table">
+        <thead><tr><th scope="col">Step</th><th scope="col" class="num">Rows</th></tr></thead>
+        <tbody>
+          <tr><td>Raw data</td><td class="num">541,909</td></tr>
+          <tr><td>Exact duplicates removed</td><td class="num">5,268</td></tr>
+          <tr><td>Quarantined in <code>rejects</code> (stock write-offs, zero-price giveaways, accounting adjustments)</td><td class="num">2,513</td></tr>
+          <tr class="total"><td>Rows in <code>fact_sales</code></td><td class="num">534,128</td></tr>
+        </tbody>
+      </table>
+      <p>Standard business numbers come from 8 verified metrics assembled from fixed, tested SQL pieces; anything else is labelled as custom SQL and shown to the user. The metrics were checked against independent queries: £9,737,069.01 net revenue and 19,959 orders.</p>
+
+      <h2>Security in three layers</h2>
+      <div class="research-block"><strong>1. Database</strong>PostgreSQL roles with column-level grants. Analyst logins are read-only, with a 10-second statement timeout.</div>
+      <div class="research-block"><strong>2. Tools</strong>The MCP server offers each role only its own tools; admin tools exist only for the admin role.</div>
+      <div class="research-block"><strong>3. Human approval</strong>Every admin change pauses for a human yes or no and is written together with its audit-log row in one transaction. The approval goes into a parameter the AI cannot set, so the AI cannot approve its own change; if no human can be asked, nothing changes.</div>
+
+      <h2>Stack</h2>
+      <dl class="facts">
+        <dt>ETL</dt><dd>PySpark, Parquet</dd>
+        <dt>Warehouse</dt><dd>PostgreSQL: roles, column grants, constraints</dd>
+        <dt>AI tools</dt><dd>MCP Python SDK; LangChain agent with LangGraph checkpointing and interrupts</dd>
+        <dt>Models</dt><dd>Google Gemini, with a local Ollama model as fallback</dd>
+        <dt>App</dt><dd>FastAPI, one HTML/CSS/JS page, SVG charts</dd>
+      </dl>
+
+      <h2>Known limitations</h2>
+      <ul>
+        <li>Admin fixes to product names are overwritten when the warehouse is rebuilt; the next step is an overrides table applied by the ETL.</li>
+        <li>Logins are demo values, and conversations are stored as JSON files.</li>
+      </ul>
+    </article>
+    <nav class="pager" aria-label="More case studies"><a href="/projects/flood-detection/">← Flood detection</a><a href="/projects/raft-ticket-booking/">Raft ticket booking →</a></nav>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">&copy; 2026 Taresh Bansal.</div>
+</footer>
+</body>
+</html>

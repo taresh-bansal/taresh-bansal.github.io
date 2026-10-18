@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSI-based fall detection | Taresh Bansal</title>
+<meta name="description" content="Competing convolutional kernels for Wi-Fi CSI-based fall detection for disabled and elderly people: 98% accuracy and 89% F1 on a public dataset. IEEE Internet of Things Magazine, 2025.">
+<meta name="author" content="Taresh Bansal">
+<meta name="theme-color" content="#1c1c1e">
+<link rel="canonical" href="https://taresh-bansal.github.io/projects/csi-fall-detection/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taresh Bansal">
+<meta property="og:title" content="CSI-based fall detection | Taresh Bansal">
+<meta property="og:description" content="Competing convolutional kernels for Wi-Fi CSI-based fall detection for disabled and elderly people: 98% accuracy and 89% F1 on a public dataset. IEEE Internet of Things Magazine, 2025.">
+<meta property="og:url" content="https://taresh-bansal.github.io/projects/csi-fall-detection/">
+<meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Taresh Bansal: machine learning for IoT security and edge devices">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CSI-based fall detection | Taresh Bansal">
+<meta name="twitter:description" content="Competing convolutional kernels for Wi-Fi CSI-based fall detection for disabled and elderly people: 98% accuracy and 89% F1 on a public dataset. IEEE Internet of Things Magazine, 2025.">
+<meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+<script src="/assets/js/theme.js"></script>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://taresh-bansal.github.io/#person",
+  "name": "Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/",
+  "email": "mailto:tareshbansal06@gmail.com",
+  "image": "https://taresh-bansal.github.io/assets/img/og-card.png",
+  "jobTitle": "M.E. Computer Science student and Teaching Assistant",
+  "affiliation": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "alumniOf": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "knowsAbout": [
+   "IoT Security",
+   "On-Device Deep Learning",
+   "Efficient Multimodal Models",
+   "Vision-Language Models",
+   "LLM Agents"
+  ],
+  "sameAs": [
+   "https://github.com/taresh-bansal",
+   "https://www.linkedin.com/in/taresh-bansal"
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "CSI-based fall detection | Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/projects/csi-fall-detection/",
+  "description": "Competing convolutional kernels for Wi-Fi CSI-based fall detection for disabled and elderly people: 98% accuracy and 89% F1 on a public dataset. IEEE Internet of Things Magazine, 2025.",
+  "about": {
+   "@id": "https://taresh-bansal.github.io/#person"
+  }
+ }
+]
+</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">Taresh Bansal</a>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">About</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/projects/" aria-current="page">Projects</a></li>
+        <li><a href="/teaching/">Teaching</a></li>
+        <li><a href="/cv/">CV</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg></button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</header>
+<main id="content">
+  <div class="container post">
+    <p class="crumbs"><a href="/projects/">← Projects</a></p>
+    <header class="post-header">
+      <h1 class="post-title">CSI-based fall detection</h1>
+      <p class="post-description">Publication · IEEE Internet of Things Magazine, 2025</p>
+    </header>
+    <article class="case">
+      <div class="case-hero">
+        <p class="case-kicker">Research · Wireless sensing</p>
+        <h2 class="case-headline">Detecting falls from Wi-Fi signals, without wearables</h2>
+        <p class="case-lead">Wi-Fi channel state information (CSI) changes as people move, so falls can be detected without asking disabled or elderly people to wear a device.</p>
+        <div class="btn-row"><a class="btn btn-primary" href="https://doi.org/10.1109/MIOT.2025.3588213" target="_blank" rel="noopener">Read the paper (DOI)</a><a class="btn" href="/publications/">BibTeX</a></div>
+      </div>
+    <ul class="impact-strip " aria-label="Highlights">
+      <li class="impact-card"><span class="impact-value">98%</span><span class="impact-label">Accuracy on a public dataset</span></li>
+      <li class="impact-card"><span class="impact-value">89%</span><span class="impact-label">F1 score</span></li>
+      <li class="impact-card"><span class="impact-value">~9%</span><span class="impact-label">Better than prior state of the art</span></li>
+      <li class="impact-card"><span class="impact-value">2025</span><span class="impact-label">IEEE Internet of Things Magazine</span></li>
+    </ul>
+      <div class="research-block"><strong>Problem</strong>Wearable fall detectors only work when they are worn and charged. CSI-based sensing offers a non-wearable alternative for disabled and elderly people.</div>
+      <div class="research-block"><strong>Approach</strong>CSI streams are treated as time series and classified with randomly generated convolutional kernels, grouped into pattern dictionaries that compete with each other (“competing kernels”). Features come from hard and soft counting of kernel matches and from first-order differences of the signal.</div>
+      <div class="research-block"><strong>Results</strong>On a public dataset the method reports 98% accuracy and 89% F1, outperforming the prior state of the art by about 9%.</div>
+      <h2>Publication</h2>
+      <p>Siva Sai, <strong>Taresh Bansal</strong>, Vinay Chamola. “A Novel Competing Convolutional Kernels Method to CSI-Based Fall Detection for Disabled People.” <em>IEEE Internet of Things Magazine</em>, 2025. <a href="https://doi.org/10.1109/MIOT.2025.3588213" target="_blank" rel="noopener">doi.org/10.1109/MIOT.2025.3588213</a></p>
+    </article>
+    <nav class="pager" aria-label="More case studies"><a href="/projects/plant-disease-edge/">← Lightweight plant-disease recognition</a><a href="/projects/flood-detection/">Flood detection →</a></nav>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">&copy; 2026 Taresh Bansal.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fault-tolerant movie-ticket booking on Raft | Taresh Bansal</title>
+<meta name="description" content="Fault-tolerant movie-ticket booking on Raft: a 3-node cluster over gRPC with leader election, log replication of bookings and automatic leader failover, plus a local Transformers FAQ assistant.">
+<meta name="author" content="Taresh Bansal">
+<meta name="theme-color" content="#1c1c1e">
+<link rel="canonical" href="https://taresh-bansal.github.io/projects/raft-ticket-booking/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taresh Bansal">
+<meta property="og:title" content="Fault-tolerant movie-ticket booking on Raft | Taresh Bansal">
+<meta property="og:description" content="Fault-tolerant movie-ticket booking on Raft: a 3-node cluster over gRPC with leader election, log replication of bookings and automatic leader failover, plus a local Transformers FAQ assistant.">
+<meta property="og:url" content="https://taresh-bansal.github.io/projects/raft-ticket-booking/">
+<meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Taresh Bansal: machine learning for IoT security and edge devices">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fault-tolerant movie-ticket booking on Raft | Taresh Bansal">
+<meta name="twitter:description" content="Fault-tolerant movie-ticket booking on Raft: a 3-node cluster over gRPC with leader election, log replication of bookings and automatic leader failover, plus a local Transformers FAQ assistant.">
+<meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+<script src="/assets/js/theme.js"></script>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://taresh-bansal.github.io/#person",
+  "name": "Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/",
+  "email": "mailto:tareshbansal06@gmail.com",
+  "image": "https://taresh-bansal.github.io/assets/img/og-card.png",
+  "jobTitle": "M.E. Computer Science student and Teaching Assistant",
+  "affiliation": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "alumniOf": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "knowsAbout": [
+   "IoT Security",
+   "On-Device Deep Learning",
+   "Efficient Multimodal Models",
+   "Vision-Language Models",
+   "LLM Agents"
+  ],
+  "sameAs": [
+   "https://github.com/taresh-bansal",
+   "https://www.linkedin.com/in/taresh-bansal"
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Fault-tolerant movie-ticket booking on Raft | Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/projects/raft-ticket-booking/",
+  "description": "Fault-tolerant movie-ticket booking on Raft: a 3-node cluster over gRPC with leader election, log replication of bookings and automatic leader failover, plus a local Transformers FAQ assistant.",
+  "about": {
+   "@id": "https://taresh-bansal.github.io/#person"
+  }
+ }
+]
+</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">Taresh Bansal</a>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">About</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/projects/" aria-current="page">Projects</a></li>
+        <li><a href="/teaching/">Teaching</a></li>
+        <li><a href="/cv/">CV</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg></button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</header>
+<main id="content">
+  <div class="container post">
+    <p class="crumbs"><a href="/projects/">← Projects</a></p>
+    <header class="post-header">
+      <h1 class="post-title">Fault-tolerant movie-ticket booking on Raft</h1>
+      <p class="post-description">Distributed Systems course project · Oct – Nov 2025</p>
+    </header>
+    <article class="case">
+      <div class="case-hero">
+        <p class="case-kicker">Engineering · Distributed systems</p>
+        <h2 class="case-headline">Bookings that survive a leader failure</h2>
+        <p class="case-lead">A movie-ticket booking system replicated across a 3-node cluster with the Raft consensus protocol, so every node agrees on the bookings and the service keeps running when the leader fails.</p>
+        <div class="btn-row"><a class="btn" href="mailto:tareshbansal06@gmail.com?subject=Raft%20ticket%20booking%20code">Code available on request</a></div>
+      </div>
+    <ul class="impact-strip " aria-label="Highlights">
+      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">Nodes in the Raft cluster</span></li>
+      <li class="impact-card"><span class="impact-value">gRPC</span><span class="impact-label">Node-to-node RPCs</span></li>
+      <li class="impact-card"><span class="impact-value">Raft</span><span class="impact-label">Leader election and log replication</span></li>
+      <li class="impact-card"><span class="impact-value">Local</span><span class="impact-label">Transformers FAQ assistant</span></li>
+    </ul>
+      <!-- RAFT PROJECT COPY: begin (edit this block to change the description) -->
+      <div class="research-block"><strong>Problem</strong>A booking service on a single server stops when that server fails, and replicas that disagree can sell the same seat twice. The bookings need one agreed order across machines.</div>
+      <div class="research-block"><strong>What I built</strong>
+        <ul>
+          <li>A 3-node cluster whose nodes talk over gRPC, with the Raft messages defined in Protocol Buffers.</li>
+          <li>Leader election with randomized election timeouts and RequestVote RPCs.</li>
+          <li>Log replication of bookings from the leader to the followers through AppendEntries, which also serve as heartbeats.</li>
+          <li>Automatic failover: when the leader fails, the remaining nodes elect a new leader and booking continues.</li>
+          <li>Clients routed to the current leader, and an application server that applies bookings from the replicated log.</li>
+          <li>A local Hugging Face Transformers question-answering model that answers booking FAQs without an external API.</li>
+        </ul>
+      </div>
+      <h2>Stack</h2>
+      <p>Python, gRPC, Protocol Buffers, Raft consensus, Hugging Face Transformers.</p>
+      <p class="note">Completed as a Distributed Systems course project. Code available on request.</p>
+      <!-- RAFT PROJECT COPY: end -->
+    </article>
+    <nav class="pager" aria-label="More case studies"><a href="/projects/ask-my-warehouse/">← Ask My Warehouse</a><a href="/projects/grpc-ticket-booking/">gRPC ticket booking →</a></nav>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">&copy; 2026 Taresh Bansal.</div>
+</footer>
+</body>
+</html>

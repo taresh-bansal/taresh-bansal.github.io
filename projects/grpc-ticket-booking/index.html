@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concurrent ticket booking service (gRPC) | Taresh Bansal</title>
+<meta name="description" content="A Python gRPC ticket booking service with booking, admin and assistant services, per-show locking, a streaming seat feed and integration tests against overbooking.">
+<meta name="author" content="Taresh Bansal">
+<meta name="theme-color" content="#1c1c1e">
+<link rel="canonical" href="https://taresh-bansal.github.io/projects/grpc-ticket-booking/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taresh Bansal">
+<meta property="og:title" content="Concurrent ticket booking service (gRPC) | Taresh Bansal">
+<meta property="og:description" content="A Python gRPC ticket booking service with booking, admin and assistant services, per-show locking, a streaming seat feed and integration tests against overbooking.">
+<meta property="og:url" content="https://taresh-bansal.github.io/projects/grpc-ticket-booking/">
+<meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Taresh Bansal: machine learning for IoT security and edge devices">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Concurrent ticket booking service (gRPC) | Taresh Bansal">
+<meta name="twitter:description" content="A Python gRPC ticket booking service with booking, admin and assistant services, per-show locking, a streaming seat feed and integration tests against overbooking.">
+<meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css">
+<script src="/assets/js/theme.js"></script>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://taresh-bansal.github.io/#person",
+  "name": "Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/",
+  "email": "mailto:tareshbansal06@gmail.com",
+  "image": "https://taresh-bansal.github.io/assets/img/og-card.png",
+  "jobTitle": "M.E. Computer Science student and Teaching Assistant",
+  "affiliation": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "alumniOf": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "knowsAbout": [
+   "IoT Security",
+   "On-Device Deep Learning",
+   "Efficient Multimodal Models",
+   "Vision-Language Models",
+   "LLM Agents"
+  ],
+  "sameAs": [
+   "https://github.com/taresh-bansal",
+   "https://www.linkedin.com/in/taresh-bansal"
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Concurrent ticket booking service (gRPC) | Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/projects/grpc-ticket-booking/",
+  "description": "A Python gRPC ticket booking service with booking, admin and assistant services, per-show locking, a streaming seat feed and integration tests against overbooking.",
+  "about": {
+   "@id": "https://taresh-bansal.github.io/#person"
+  }
+ }
+]
+</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">Taresh Bansal</a>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">About</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/projects/" aria-current="page">Projects</a></li>
+        <li><a href="/teaching/">Teaching</a></li>
+        <li><a href="/cv/">CV</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg></button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</header>
+<main id="content">
+  <div class="container post">
+    <p class="crumbs"><a href="/projects/">← Projects</a></p>
+    <header class="post-header">
+      <h1 class="post-title">Concurrent ticket booking service (gRPC)</h1>
+      <p class="post-description">Engineering · Oct 2025</p>
+    </header>
+    <article class="case">
+      <div class="case-hero">
+        <p class="case-kicker">Engineering · gRPC services</p>
+        <h2 class="case-headline">Concurrent clients, no overbooking</h2>
+        <p class="case-lead">A Python gRPC service for booking show tickets, built so that many clients reserving seats at the same time can never oversell a show.</p>
+        <div class="btn-row"><a class="btn btn-primary" href="https://github.com/taresh-bansal/ticket-booking-system" target="_blank" rel="noopener">Code on GitHub</a></div>
+      </div>
+    <ul class="impact-strip " aria-label="Highlights">
+      <li class="impact-card"><span class="impact-value">3</span><span class="impact-label">gRPC services</span></li>
+      <li class="impact-card"><span class="impact-value">Per-show</span><span class="impact-label">Locks around every reservation</span></li>
+      <li class="impact-card"><span class="impact-value">Streaming</span><span class="impact-label">Live seat-availability feed</span></li>
+    </ul>
+      <div class="research-block"><strong>Services</strong>Three gRPC services defined in Protocol Buffers. <em>BookingService</em> lists shows, reports seats, reserves and cancels bookings, and streams seat-availability updates. <em>AdminService</em> adds and updates shows, lists bookings, resets data and launches concurrent-booking simulations. <em>LLMService</em> answers user questions.</div>
+      <div class="research-block"><strong>Concurrency</strong>Each show has its own re-entrant lock, held while checking availability, decrementing seats and creating the booking, so two clients cannot both take the last seat. Cancellations return seats under the same lock.</div>
+      <div class="research-block"><strong>Testing</strong>An admin RPC runs many simulated clients at once in a thread pool. Integration tests use it to check, for example, that 10 clients competing for 5 seats confirm at most 5 bookings and never drive availability below zero.</div>
+      <div class="research-block"><strong>Assistant</strong>Common questions are answered from a small FAQ map; other questions fall back to a Hugging Face sequence-to-sequence model (FLAN-T5 small by default).</div>
+      <h2>Stack</h2>
+      <p>Python, gRPC, Protocol Buffers, pytest, Hugging Face Transformers. Command-line clients for users, admins and the assistant.</p>
+      <h2>Scope</h2>
+      <p>Data is held in memory and payment is mocked; this service runs as a single server.</p>
+    </article>
+    <nav class="pager" aria-label="More case studies"><a href="/projects/raft-ticket-booking/">← Raft ticket booking</a><a href="/projects/">All projects →</a></nav>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">&copy; 2026 Taresh Bansal.</div>
+</footer>
+</body>
+</html>
