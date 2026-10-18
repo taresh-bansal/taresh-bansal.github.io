@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auditing visual grounding in medical VLMs | Taresh Bansal</title>
+<meta name="description" content="Do medical vision-language models actually look at the X-ray? A preregistered audit that changes the image and watches the report, across chest X-ray specialists, medical generalists and a general-purpose model.">
+<meta name="author" content="Taresh Bansal">
+<meta name="theme-color" content="#1c1c1e">
+<link rel="canonical" href="https://taresh-bansal.github.io/projects/medical-vlm-grounding/">
+<meta property="og:url" content="https://taresh-bansal.github.io/projects/medical-vlm-grounding/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taresh Bansal">
+<meta property="og:title" content="Auditing visual grounding in medical VLMs | Taresh Bansal">
+<meta property="og:description" content="Do medical vision-language models actually look at the X-ray? A preregistered audit that changes the image and watches the report, across chest X-ray specialists, medical generalists and a general-purpose model.">
+<meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Auditing visual grounding in medical VLMs | Taresh Bansal">
+<meta name="twitter:description" content="Do medical vision-language models actually look at the X-ray? A preregistered audit that changes the image and watches the report, across chest X-ray specialists, medical generalists and a general-purpose model.">
+<meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
+<link rel="stylesheet" href="/assets/css/main.css?v=202610181442">
+<script src="/assets/js/theme.js?v=202610181442"></script>
+<script type="application/ld+json">
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://taresh-bansal.github.io/#person",
+  "name": "Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/",
+  "email": "mailto:tareshbansal06@gmail.com",
+  "jobTitle": "M.E. Computer Science student and Teaching Assistant",
+  "affiliation": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "alumniOf": {
+   "@type": "CollegeOrUniversity",
+   "name": "Birla Institute of Technology and Science, Pilani"
+  },
+  "knowsAbout": [
+   "AI Agents",
+   "Agentic AI",
+   "Multimodal AI",
+   "AI for Science",
+   "Vision-Language Models",
+   "Natural Language Processing"
+  ],
+  "sameAs": [
+   "https://github.com/taresh-bansal",
+   "https://www.linkedin.com/in/taresh-bansal"
+  ]
+ },
+ {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Auditing visual grounding in medical VLMs | Taresh Bansal",
+  "url": "https://taresh-bansal.github.io/projects/medical-vlm-grounding/",
+  "description": "Do medical vision-language models actually look at the X-ray? A preregistered audit that changes the image and watches the report, across chest X-ray specialists, medical generalists and a general-purpose model.",
+  "about": {
+   "@id": "https://taresh-bansal.github.io/#person"
+  }
+ }
+]
+</script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">Taresh Bansal</a>
+    <nav aria-label="Main">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/">About</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/projects/" aria-current="page">Projects</a></li>
+        <li><a href="/teaching/">Teaching</a></li>
+        <li><a href="/cv/">CV</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg></button>
+    <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><svg class="i-bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+</header>
+<main id="content">
+  <div class="container post">
+    <p class="crumbs"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Projects</a></p>
+    <header class="post-header">
+      <h1 class="post-title">Auditing visual grounding in medical VLMs</h1>
+      <p class="post-description">2026 · In progress</p>
+    </header>
+    <article class="case">
+      <div class="case-hero">
+        <p class="case-kicker">Multimodal AI · Medical imaging</p>
+        <p class="case-headline">Do medical AI models actually look at the X-ray?</p>
+        <p class="case-lead">Models that write chest X-ray reports are graded on how closely their report matches the radiologist&#x27;s. That grade cannot tell whether the model looked at the image: a convincing report can be written from what patients usually look like. This study tests image use directly, by changing the image and watching what happens to the report.</p>
+        <div class="btn-row"><a class="btn btn-primary" href="https://github.com/Toast24/medical-vlm-gap" target="_blank" rel="noopener">Code on GitHub</a><a class="btn" href="https://github.com/Toast24/medical-vlm-gap/blob/master/docs/PROJECT_A_RESULTS.md" target="_blank" rel="noopener">Results summary</a></div>
+      </div>
+      <section class="research-block"><h2>Problem</h2><p>Report-agreement scores reward a fluent, typical-looking report whether or not it came from the image. A model can score well while largely ignoring the X-ray, and standard evaluation has no way to tell.</p></section>
+      <section class="research-block"><h2>Approach</h2><p>Controlled interventions on the image, with the prompt, decoding and patient held fixed. Each model writes a report under five conditions:</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <caption class="sr-only">The five image conditions and what each one tests</caption>
+        <thead><tr><th scope="col">Condition</th><th scope="col">What the model is given</th><th scope="col">What it tests</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Real</th><td>The correct X-ray</td><td>Normal behaviour</td></tr>
+          <tr><th scope="row">Swapped</th><td>Another patient&#x27;s X-ray</td><td>Does the report follow the image it was given?</td></tr>
+          <tr><th scope="row">Blank</th><td>A black image</td><td>Behaviour with an uninformative image</td></tr>
+          <tr><th scope="row">Metadata only</th><td>No image; acquisition details as text</td><td>Influence of non-image cues</td></tr>
+          <tr><th scope="row">No input</th><td>Nothing</td><td>The model&#x27;s built-in &ldquo;default patient&rdquo;</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>The key measure is <strong>source-following</strong>: the swapped-image report is scored against both the swapped-in patient&#x27;s report and the original patient&#x27;s. A model that reads the image follows the new X-ray; one that ignores it does not. Free-text reports have no single answer to flip, so the method adds two-reference scoring, finding-level analysis and chest X-ray specialists as positive controls. Hypotheses were preregistered, and every scorer was first validated against radiologists&#x27; judgements.</p></section>
+      <section class="research-block"><h2>Findings</h2>
+        <ul>
+          <li><strong>A clear, consistent gradient.</strong> Models range from strongly image-reading to essentially guessing, in the same order on every dataset and scorer: CheXagent, MAIRA-2, MedGemma, Lingshu, Qwen2.5-VL.</li>
+          <li><strong>Specialists read the image more than medical generalists.</strong> The preregistered primary hypothesis, confirmed on all three scorers.</li>
+          <li><strong>Medical generalists carry a &ldquo;sick patient&rdquo; prior.</strong> With no image, Lingshu and MedGemma describe a typical sick inpatient, while the specialists and the general-purpose model default to normal or empty output. That prior earns credit without looking.</li>
+          <li><strong>Standard grading cannot see the difference.</strong> Lingshu scores about as well as MAIRA-2 on conventional agreement, yet earns a large share of its score with no image at all.</li>
+          <li><strong>No model notices when it cannot see.</strong> Every model describes a black image as a normal chest X-ray.</li>
+        </ul>
+      </section>
+      <section class="research-block"><h2>Why it matters</h2><p>Recent work audited image use in yes/no medical question answering and named free-text report generation as the open next step. This study takes that step, and shows that a model&#x27;s headline score and its reliance on the image can come apart, which matters wherever these models are trusted to read scans.</p></section>
+      <h2 class="sub-h">Study design</h2>
+      <dl class="facts">
+        <dt>Models</dt><dd>Chest X-ray specialists (CheXagent, MAIRA-2); medical generalists (MedGemma, Lingshu); general-purpose base model (Qwen2.5-VL)</dd>
+        <dt>Data</dt><dd>MIMIC-CXR, IU X-ray and CheXpert Plus; scorer validation on ReXVal</dd>
+        <dt>Scorers</dt><dd>RadGraph F1 (primary), an LLM judge, and CheXbert, each validated against radiologists</dd>
+        <dt>Design</dt><dd>Two preregistered studies; deterministic decoding; everything except the image held fixed</dd>
+        <dt>Status</dt><dd>Both studies complete; robustness checks and paper in progress</dd>
+      </dl>
+      <nav class="pager" aria-label="More case studies"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>All projects</a><a href="/projects/iomt-intrusion-detection/">Drift-resilient IoMT intrusion detection<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
+    </article>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">&copy; 2026 Taresh Bansal.</div>
+</footer>
+</body>
+</html>
