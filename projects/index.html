@@ -8,20 +8,22 @@
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/">
+<meta property="og:url" content="https://taresh-bansal.github.io/projects/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
 <meta property="og:title" content="Projects | Taresh Bansal">
 <meta property="og:description" content="Research and engineering case studies by Taresh Bansal: IoMT intrusion detection, lightweight plant-disease recognition, CSI fall detection, Ask My Warehouse, and Raft-based ticket booking.">
-<meta property="og:url" content="https://taresh-bansal.github.io/projects/">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Taresh Bansal: machine learning for IoT security and edge devices">
+<meta property="og:image:alt" content="Taresh Bansal: machine learning for IoT security and efficient, on-device models">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Projects | Taresh Bansal">
 <meta name="twitter:description" content="Research and engineering case studies by Taresh Bansal: IoMT intrusion detection, lightweight plant-disease recognition, CSI fall detection, Ask My Warehouse, and Raft-based ticket booking.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
+<meta name="twitter:image:alt" content="Taresh Bansal: machine learning for IoT security and efficient, on-device models">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
@@ -36,7 +38,6 @@
   "name": "Taresh Bansal",
   "url": "https://taresh-bansal.github.io/",
   "email": "mailto:tareshbansal06@gmail.com",
-  "image": "https://taresh-bansal.github.io/assets/img/og-card.png",
   "jobTitle": "M.E. Computer Science student and Teaching Assistant",
   "affiliation": {
    "@type": "CollegeOrUniversity",
@@ -97,14 +98,14 @@
     </header>
     <div class="page-hero">
       <p class="page-kicker">Work</p>
-      <h2 class="page-hero-title">Research results and engineering systems</h2>
-      <p class="page-hero-lead"><strong>Research</strong> pages cover the question, the approach and the results, with the real numbers. <strong>Engineering</strong> pages cover what the system does, how it is built and the stack.</p>
+      <h2 class="page-hero-title">Reliable machine learning on constrained devices and shifting data</h2>
+      <p class="page-hero-lead">My research asks how small and how adaptive a model can be while staying accurate, from intrusion detection on medical IoT traffic to crop-disease models with under 2.2M parameters. The engineering projects are systems I have built along the way.</p>
     </div>
-    <ul class="impact-strip " aria-label="Highlights">
-      <li class="impact-card"><span class="impact-value">99.94%</span><span class="impact-label">IoMT attack-detection accuracy</span></li>
-      <li class="impact-card"><span class="impact-value">0.65 s</span><span class="impact-label">Per model update (vs 41.5 s NuSVC retrain)</span></li>
-      <li class="impact-card"><span class="impact-value">69.8%</span><span class="impact-label">Accuracy, 115-class plant-disease dataset</span></li>
-      <li class="impact-card"><span class="impact-value">541,909</span><span class="impact-label">Retail rows through the warehouse ETL</span></li>
+    <ul class="impact-strip " aria-label="Key figures">
+      <li class="impact-card"><span class="impact-value">0.65 s</span><span class="impact-label">Per model update</span></li>
+      <li class="impact-card"><span class="impact-value">+3.8 pts</span><span class="impact-label">Over next model</span></li>
+      <li class="impact-card"><span class="impact-value">69.8%</span><span class="impact-label">115-class accuracy</span></li>
+      <li class="impact-card"><span class="impact-value">541,909</span><span class="impact-label">Rows through ETL</span></li>
     </ul>
 
     <section aria-labelledby="research-h">
@@ -113,33 +114,33 @@
       <li><a class="project-card-link" href="/projects/iomt-intrusion-detection/">
         <div class="project-card">
           <p class="project-kicker">Research · IoT security</p>
-          <h3 class="card-title">Drift-resilient intrusion detection for IoMT</h3>
-          <p class="card-text">Adaptive Hoeffding trees for medical IoT traffic: 99.94% accuracy, updated in 0.65 s per cycle. First-author paper under review.</p>
-          <span class="project-cta">View case study →</span>
+          <h3 class="card-title">Drift-resilient IoMT intrusion detection</h3>
+          <p class="card-text">Adaptive Hoeffding trees that update in 0.65 s instead of a 41.5 s retrain as medical IoT traffic shifts. First-author paper under review.</p>
+          <span class="project-cta">View case study<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </a></li>
       <li><a class="project-card-link" href="/projects/plant-disease-edge/">
         <div class="project-card">
-          <p class="project-kicker">Research · On-device learning</p>
+          <p class="project-kicker">Research · Efficient models</p>
           <h3 class="card-title">Lightweight plant-disease recognition</h3>
-          <p class="card-text">9 models under 2.2M parameters on 3 datasets; the proposed 2.03M-parameter model led on 2 of 3 and ran at 10.5 ms per image.</p>
-          <span class="project-cta">View case study →</span>
+          <p class="card-text">9 models under 2.2M parameters on 3 datasets; the proposed 2.03M-parameter model led on 2 of 3, at 10.5 ms per image.</p>
+          <span class="project-cta">View case study<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </a></li>
       <li><a class="project-card-link" href="/projects/csi-fall-detection/">
         <div class="project-card">
           <p class="project-kicker">Research · Wireless sensing</p>
           <h3 class="card-title">CSI-based fall detection</h3>
-          <p class="card-text">Device-free fall detection from Wi-Fi signals with competing convolutional kernels. Published in IEEE IoT Magazine, 2025.</p>
-          <span class="project-cta">View case study →</span>
+          <p class="card-text">Device-free fall detection from Wi-Fi signals with competing convolutional kernels. Published in IEEE Internet of Things Magazine, 2025.</p>
+          <span class="project-cta">View case study<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </a></li>
       <li><a class="project-card-link" href="/projects/flood-detection/">
         <div class="project-card">
-          <p class="project-kicker">Earlier project · Computer vision</p>
+          <p class="project-kicker">Research · Computer vision</p>
           <h3 class="card-title">Flood detection from drone imagery</h3>
           <p class="card-text">Transfer learning with ResNet, InceptionNet and Xception to spot flooding in drone photos: 99.1% accuracy.</p>
-          <span class="project-cta">View case study →</span>
+          <span class="project-cta">View case study<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </a></li>
       </ul>
@@ -153,15 +154,15 @@
           <p class="project-kicker">Engineering · Data and LLM agents</p>
           <h3 class="card-title">Ask My Warehouse</h3>
           <p class="card-text">Plain-English questions over a PostgreSQL star schema via an MCP server and a LangChain agent, with three layers of access control.</p>
-          <span class="project-cta">View case study →</span>
+          <span class="project-cta">View case study<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </a></li>
       <li><a class="project-card-link" href="/projects/raft-ticket-booking/">
         <div class="project-card">
           <p class="project-kicker">Engineering · Distributed systems</p>
-          <h3 class="card-title">Fault-tolerant movie-ticket booking on Raft</h3>
+          <h3 class="card-title">Fault-tolerant ticket booking on Raft</h3>
           <p class="card-text">Bookings replicated across a 3-node Raft cluster over gRPC, with automatic leader failover and a local FAQ assistant.</p>
-          <span class="project-cta">View case study →</span>
+          <span class="project-cta">View case study<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </a></li>
       <li><a class="project-card-link" href="/projects/grpc-ticket-booking/">
@@ -169,7 +170,7 @@
           <p class="project-kicker">Engineering · gRPC services</p>
           <h3 class="card-title">Concurrent ticket booking service</h3>
           <p class="card-text">gRPC booking, admin and assistant services with per-show locking; integration tests check that concurrent clients never overbook.</p>
-          <span class="project-cta">View case study →</span>
+          <span class="project-cta">View case study<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </a></li>
       <li><a class="project-card-link" href="https://github.com/taresh-bansal/TensorTonic-Solutions" target="_blank" rel="noopener">
@@ -177,7 +178,7 @@
           <p class="project-kicker">Practice · ML from scratch</p>
           <h3 class="card-title">TensorTonic solutions</h3>
           <p class="card-text">My solutions to TensorTonic problems: core machine learning algorithms implemented from scratch.</p>
-          <span class="project-cta">View on GitHub →</span>
+          <span class="project-cta">View on GitHub<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
         </div>
       </a></li>
       </ul>
