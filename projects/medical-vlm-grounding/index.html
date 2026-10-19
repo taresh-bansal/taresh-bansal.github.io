@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/main.css?v=202610191436">
+<link rel="stylesheet" href="/assets/css/main.css?v=202610191446">
 <script src="/assets/js/theme.js?v=202610181442"></script>
 <script type="application/ld+json">
 [
@@ -118,12 +118,12 @@
 
       <figure class="cpsi-fig vlm-fig">
         <figcaption><b>Figure 1. How the test works.</b> Everything stays fixed except the image. If the report changes to match a swapped-in X-ray, the model is reading the image.</figcaption>
-        <ol class="vlm-pipe">
-          <li><span class="vp-k">Fixed</span><b>Same patient, same instructions</b></li>
-          <li><span class="vp-k">Change</span><b>The image</b><ul class="vp-chips"><li>Right X-ray</li><li>Someone else&#x27;s X-ray</li><li>Black image</li><li>Scan details only</li><li>No image</li></ul></li>
-          <li><span class="vp-k">Write</span><b>Five AI models write a report</b><ul class="vp-chips"><li>X-ray specialists</li><li>Medical generalists</li><li>General-purpose</li></ul></li>
-          <li><span class="vp-k">Grade</span><b>Compare with two real reports</b><ul class="vp-chips"><li>The right patient&#x27;s</li><li>The swapped-in patient&#x27;s</li></ul></li>
-          <li class="vp-out"><span class="vp-k">Answer</span><b>Does the report follow the image?</b></li>
+        <ol class="vlm-pipe pipe-n" style="--n:5">
+          <li class="st c1"><span class="vp-k">Fixed</span><b>Same patient, same instructions</b></li>
+          <li class="st c3"><span class="vp-k">Change</span><b>The image</b><ul class="vp-chips"><li>Right X-ray</li><li>Someone else&#x27;s X-ray</li><li>Black image</li><li>Scan details only</li><li>No image</li></ul></li>
+          <li class="st c7"><span class="vp-k">Write</span><b>Five AI models write a report</b><ul class="vp-chips"><li>X-ray specialists</li><li>Medical generalists</li><li>General-purpose</li></ul></li>
+          <li class="st c4"><span class="vp-k">Grade</span><b>Compare with two real reports</b><ul class="vp-chips"><li>The right patient&#x27;s</li><li>The swapped-in patient&#x27;s</li></ul></li>
+          <li class="st c2 vp-out"><span class="vp-k">Answer</span><b>Does the report follow the image?</b></li>
         </ol>
       </figure>
 
@@ -132,8 +132,8 @@
       <h3 class="vlm-find">1. Some models read the image. Others barely look.</h3>
       <figure class="cpsi-fig vlm-fig">
         <figcaption><b>Figure 2. Does the report follow a swapped-in X-ray?</b> Further right means the report follows the image more. Each line shows the range of likely values. Chest X-ray specialists follow the image most; the general-purpose model does not follow it at all.</figcaption>
-        <div class="vf" role="img" aria-label="Chart: CheXagent follows the swapped image most, then MAIRA-2, then MedGemma and Lingshu, while Qwen2.5-VL does not follow it.">
-          <ol class="vf-rows vf-zero" style="--zero:25"><li><span class="vf-name">CheXagent<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-wh" style="--p:60;--w:35"></span><span class="vf-dot" style="--p:80"></span></span></li><li><span class="vf-name">MAIRA-2<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-wh" style="--p:50;--w:25"></span><span class="vf-dot" style="--p:65"></span></span></li><li><span class="vf-name">MedGemma<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:30;--w:20"></span><span class="vf-dot" style="--p:40"></span></span></li><li><span class="vf-name">Lingshu<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:25;--w:30"></span><span class="vf-dot" style="--p:40"></span></span></li><li><span class="vf-name">Qwen2.5-VL<small>general-purpose</small></span><span class="vf-track"><span class="vf-wh" style="--p:5;--w:25"></span><span class="vf-dot" style="--p:15"></span></span></li></ol>
+        <ul class="lg"><li><span class="sw c1"></span>Chest X-ray specialist</li><li><span class="sw c2"></span>Medical generalist</li><li><span class="sw c3"></span>General-purpose</li></ul><div class="vf" role="img" aria-label="Chart: CheXagent follows the swapped image most, then MAIRA-2, then MedGemma and Lingshu, while Qwen2.5-VL does not follow it.">
+          <ol class="vf-rows vf-zero" style="--zero:25"><li class="c1"><span class="vf-name">CheXagent<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-wh" style="--p:60;--w:35"></span><span class="vf-dot" style="--p:80"></span></span></li><li class="c1"><span class="vf-name">MAIRA-2<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-wh" style="--p:50;--w:25"></span><span class="vf-dot" style="--p:65"></span></span></li><li class="c2"><span class="vf-name">MedGemma<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:30;--w:20"></span><span class="vf-dot" style="--p:40"></span></span></li><li class="c2"><span class="vf-name">Lingshu<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:25;--w:30"></span><span class="vf-dot" style="--p:40"></span></span></li><li class="c3"><span class="vf-name">Qwen2.5-VL<small>general-purpose</small></span><span class="vf-track"><span class="vf-wh" style="--p:5;--w:25"></span><span class="vf-dot" style="--p:15"></span></span></li></ol>
           <div class="vf-axis"><span style="left:25%">Ignores the image</span><span class="vf-axis-r">Follows the image &rarr;</span></div>
         </div>
       </figure>
@@ -141,8 +141,8 @@
       <h3 class="vlm-find">2. Some models earn most of their grade without the image.</h3>
       <figure class="cpsi-fig vlm-fig">
         <figcaption><b>Figure 3. How much of the grade is earned with no image at all?</b> Each dot is one of the three datasets. The specialists earn nothing without the image. The general-purpose model earns all of its grade without it.</figcaption>
-        <div class="vf" role="img" aria-label="Chart: share of the grade earned with no image. CheXagent and MAIRA-2 earn none; Lingshu earns a substantial share; MedGemma earns most; Qwen2.5-VL earns all of it.">
-          <ol class="vf-rows"><li><span class="vf-name">CheXagent<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-dot" style="--p:0"></span></span></li><li><span class="vf-name">MAIRA-2<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-dot" style="--p:0"></span></span></li><li><span class="vf-name">MedGemma<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:78;--w:18"></span><span class="vf-dot" style="--p:78"></span><span class="vf-dot" style="--p:84"></span><span class="vf-dot" style="--p:96"></span></span></li><li><span class="vf-name">Lingshu<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:39;--w:27"></span><span class="vf-dot" style="--p:39"></span><span class="vf-dot" style="--p:64"></span><span class="vf-dot" style="--p:66"></span></span></li><li><span class="vf-name">Qwen2.5-VL<small>general-purpose</small></span><span class="vf-track"><span class="vf-wh" style="--p:97;--w:3"></span><span class="vf-dot" style="--p:97"></span><span class="vf-dot" style="--p:100"></span></span></li></ol>
+        <ul class="lg"><li><span class="sw c1"></span>Chest X-ray specialist</li><li><span class="sw c2"></span>Medical generalist</li><li><span class="sw c3"></span>General-purpose</li></ul><div class="vf" role="img" aria-label="Chart: share of the grade earned with no image. CheXagent and MAIRA-2 earn none; Lingshu earns a substantial share; MedGemma earns most; Qwen2.5-VL earns all of it.">
+          <ol class="vf-rows"><li class="c1"><span class="vf-name">CheXagent<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-dot" style="--p:0"></span></span></li><li class="c1"><span class="vf-name">MAIRA-2<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-dot" style="--p:0"></span></span></li><li class="c2"><span class="vf-name">MedGemma<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:78;--w:18"></span><span class="vf-dot" style="--p:78"></span><span class="vf-dot" style="--p:84"></span><span class="vf-dot" style="--p:96"></span></span></li><li class="c2"><span class="vf-name">Lingshu<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:39;--w:27"></span><span class="vf-dot" style="--p:39"></span><span class="vf-dot" style="--p:64"></span><span class="vf-dot" style="--p:66"></span></span></li><li class="c3"><span class="vf-name">Qwen2.5-VL<small>general-purpose</small></span><span class="vf-track"><span class="vf-wh" style="--p:97;--w:3"></span><span class="vf-dot" style="--p:97"></span><span class="vf-dot" style="--p:100"></span></span></li></ol>
           <div class="vf-axis"><span style="left:0">None</span><span style="left:50%">Half</span><span class="vf-axis-r">All</span></div>
         </div>
       </figure>
@@ -150,8 +150,8 @@
       <h3 class="vlm-find">3. The usual grade cannot tell them apart.</h3>
       <figure class="cpsi-fig vlm-fig">
         <figcaption><b>Figure 4. The standard grade, side by side.</b> A general medical model scores almost the same as a chest X-ray specialist, and the same again when it is given no image at all.</figcaption>
-        <div class="vf" role="img" aria-label="Chart: on the standard grade, MAIRA-2 with the real X-ray and Lingshu with or without an image score almost the same.">
-          <ol class="vf-rows"><li><span class="vf-name">MAIRA-2<small>with the real X-ray</small></span><span class="vf-track vf-bars"><span class="vf-bar" style="width:45.3%"></span></span></li><li><span class="vf-name">Lingshu<small>with the real X-ray</small></span><span class="vf-track vf-bars"><span class="vf-bar" style="width:43%"></span></span></li><li><span class="vf-name">Lingshu<small>with no image at all</small></span><span class="vf-track vf-bars"><span class="vf-bar vf-bar-ghost" style="width:43%"></span></span></li></ol>
+        <ul class="lg"><li><span class="sw c1"></span>Chest X-ray specialist</li><li><span class="sw c2"></span>Medical generalist</li><li><span class="sw c2 sw-ghost"></span>Same model, no image</li></ul><div class="vf" role="img" aria-label="Chart: on the standard grade, MAIRA-2 with the real X-ray and Lingshu with or without an image score almost the same.">
+          <ol class="vf-rows"><li class="c1"><span class="vf-name">MAIRA-2<small>with the real X-ray</small></span><span class="vf-track vf-bars"><span class="vf-bar" style="width:45.3%"></span></span></li><li class="c2"><span class="vf-name">Lingshu<small>with the real X-ray</small></span><span class="vf-track vf-bars"><span class="vf-bar" style="width:43%"></span></span></li><li class="c2"><span class="vf-name">Lingshu<small>with no image at all</small></span><span class="vf-track vf-bars"><span class="vf-bar vf-bar-ghost" style="width:43%"></span></span></li></ol>
           <div class="vf-axis"><span style="left:0">Worse</span><span class="vf-axis-r">Better match to the radiologist &rarr;</span></div>
         </div>
       </figure>
@@ -164,11 +164,11 @@
           <caption class="sr-only">What each model writes for a black image and for no image</caption>
           <thead><tr><th scope="col">Model</th><th scope="col">Given a black image</th><th scope="col">Given no image</th></tr></thead>
           <tbody>
-            <tr><th scope="row">CheXagent<small>X-ray specialist</small></th><td>A normal report</td><td>Says nothing is described</td></tr>
-            <tr><th scope="row">MAIRA-2<small>X-ray specialist</small></th><td>Stock phrases from its training data</td><td>Needs an image</td></tr>
-            <tr><th scope="row">MedGemma<small>medical generalist</small></th><td>A normal report</td><td><span class="vlm-flag">A sick patient</span> with an enlarged heart</td></tr>
-            <tr><th scope="row">Lingshu<small>medical generalist</small></th><td>A normal report</td><td><span class="vlm-flag">A sick patient</span> with an enlarged heart</td></tr>
-            <tr><th scope="row">Qwen2.5-VL<small>general-purpose</small></th><td>A normal report</td><td>A normal report</td></tr>
+            <tr><th scope="row"><span class="sw c1 tsw"></span>CheXagent<small>X-ray specialist</small></th><td>A normal report</td><td>Says nothing is described</td></tr>
+            <tr><th scope="row"><span class="sw c1 tsw"></span>MAIRA-2<small>X-ray specialist</small></th><td>Stock phrases from its training data</td><td>Needs an image</td></tr>
+            <tr><th scope="row"><span class="sw c2 tsw"></span>MedGemma<small>medical generalist</small></th><td>A normal report</td><td><span class="vlm-flag">A sick patient</span> with an enlarged heart</td></tr>
+            <tr><th scope="row"><span class="sw c2 tsw"></span>Lingshu<small>medical generalist</small></th><td>A normal report</td><td><span class="vlm-flag">A sick patient</span> with an enlarged heart</td></tr>
+            <tr><th scope="row"><span class="sw c3 tsw"></span>Qwen2.5-VL<small>general-purpose</small></th><td>A normal report</td><td>A normal report</td></tr>
           </tbody>
         </table>
         </div>

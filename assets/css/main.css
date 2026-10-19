@@ -457,6 +457,12 @@ html[data-theme="light"]{--c1:#2a78d6;--c2:#eb6834;--c3:#1baf7a;--c4:#eda100;--c
   .sc-pt em{font-size:.7rem}
   .sc-pt em .lf,.sc-zone span{display:none}
 }
+.vf-rows li[class^="c"] .vf-dot,.vf-rows li[class^="c"] .vf-wh,.vf-rows li[class^="c"] .vf-bar{background:var(--c)}
+.vf-rows li[class^="c"] .vf-bar-ghost{background:repeating-linear-gradient(135deg,var(--c) 0 3px,transparent 3px 7px);border-color:var(--c)}
+.vlm-table .tsw{width:.65rem;height:.65rem;margin-right:.45rem;vertical-align:baseline}
+.vlm-flag{border-bottom-color:var(--c2)}
+.vlm-fig .vlm-steps{margin:0}
+.sw-ghost{background:repeating-linear-gradient(135deg,var(--c) 0 2px,transparent 2px 4px);box-shadow:inset 0 0 0 1.5px var(--c)}
 /* ---------- end case-study figures ---------- */
 
 @media print{
