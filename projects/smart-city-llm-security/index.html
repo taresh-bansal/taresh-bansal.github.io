@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Behavioral security for LLM-integrated smart cities | Taresh Bansal</title>
-<meta name="description" content="Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.">
+<meta name="description" content="Where AI language models in city systems can be misled into acting on a false picture of the city: a threat model across three levels, three end-to-end attacks, and one proposed defence per level.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/smart-city-llm-security/">
@@ -12,14 +12,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
 <meta property="og:title" content="Behavioral security for LLM-integrated smart cities | Taresh Bansal">
-<meta property="og:description" content="Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.">
+<meta property="og:description" content="Where AI language models in city systems can be misled into acting on a false picture of the city: a threat model across three levels, three end-to-end attacks, and one proposed defence per level.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Behavioral security for LLM-integrated smart cities | Taresh Bansal">
-<meta name="twitter:description" content="Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.">
+<meta name="twitter:description" content="Where AI language models in city systems can be misled into acting on a false picture of the city: a threat model across three levels, three end-to-end attacks, and one proposed defence per level.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/main.css?v=202610191446">
+<link rel="stylesheet" href="/assets/css/main.css?v=202610191450">
 <script src="/assets/js/theme.js?v=202610181442"></script>
 <script type="application/ld+json">
 [
@@ -66,7 +66,7 @@
   "@type": "WebPage",
   "name": "Behavioral security for LLM-integrated smart cities | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/smart-city-llm-security/",
-  "description": "Cognitive-Physical State Integrity: a threat model and proposed behavioral security framework for smart-city systems that put LLMs on the decision path, across perception, edge and city-scale application layers.",
+  "description": "Where AI language models in city systems can be misled into acting on a false picture of the city: a threat model across three levels, three end-to-end attacks, and one proposed defence per level.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -97,49 +97,26 @@
     <p class="crumbs"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Projects</a></p>
     <header class="post-header">
       <h1 class="post-title">Behavioral security for LLM-integrated smart cities</h1>
-      <p class="post-description">Apr 2026</p>
+      <p class="post-description">Apr 2026 · Threat model and framework</p>
     </header>
     <article class="case">
       <div class="case-hero">
-        <p class="case-kicker">LLM security · Threat modeling</p>
-        <p class="case-headline">When an LLM's picture of the city stops matching the city</p>
-        <p class="case-lead">Cities are starting to let LLMs retime traffic signals, route traffic along corridors and answer residents. This work builds one threat model for these systems, names the gap they share, and proposes a framework of defenses for it.</p>
+        <p class="case-kicker">LLM security · Smart cities</p>
+        <p class="case-headline">When a city&#x27;s AI believes false data, it acts on it, and explains it convincingly</p>
+        <p class="case-lead">Cities are starting to let AI language models time traffic lights, route vehicles and answer residents. Today&#x27;s security checks that data arrives safely, not that the model&#x27;s picture of the city is still true. This work maps where that picture breaks, and proposes how to protect it.</p>
       </div>
-      <p class="report-title">Report: <cite>Cognitive-Physical State Integrity: A Behavioral Security Framework for LLM-Integrated Smart City Applications</cite> (Apr 2026)</p>
-      <section class="research-block"><h2>Problem</h2><p>Smart-city security checks that data arrives intact and from an authenticated sender. Once an LLM sits on the decision path, that is not enough: the model can act on a state that no longer matches physical reality or city policy while every cryptographic and network check still passes. This work calls the missing property <b>Cognitive-Physical State Integrity (CPSI)</b>; today no runtime mechanism verifies it. Three failure modes follow.</p>
-        <ul>
-          <li><b>Context integrity violation:</b> falsified telemetry passes authentication and still poisons the model's reasoning.</li>
-          <li><b>Trust amplification:</b> a low-level exploit, such as a Sybil vehicle cluster, is turned by the model into authoritative, city-scale guidance.</li>
-          <li><b>Behavioral state divergence:</b> deleted profiles or retired facts can be reconstructed, so the model's behavior drifts from the city's compliance claims.</li>
-        </ul></section>
-      <h2 class="sub-h">Architecture</h2>
-      <p>The analysis uses one generalized architecture for LLM integration across three layers of city operations, each grounded in a published or deployed reference system.</p>
-      <figure class="cpsi-fig">
-        <figcaption><b>Three layers of an LLM-integrated city.</b> In each layer, data passes through the steps in order; the highlighted step is the CPSI boundary, where the model's view of the city can stop matching reality.</figcaption>
-        <ol class="layers">
-          <li class="layer">
-            <div class="layer-head"><h3 class="layer-name">Global application</h3><span class="layer-scope">City scale</span></div>
-            <p class="layer-ref">Reference system: a resident-facing city AI concierge, such as Riverside's Rivy</p>
-            <ol class="flow" aria-label="Data flow"><li>Resident and operator queries, city databases</li><li>Profile assembly</li><li class="cpsi"><span class="cpsi-tag">CPSI boundary</span>Model weights and retrieval</li><li>Recommendations and civic guidance</li></ol>
-            <p class="layer-gap"><b>Where integrity breaks:</b> knowledge that was deleted or restricted can resurface, because unlearning left traces in the weights or because the model infers it again from surrounding context.</p>
-          </li>
-          <li class="layer">
-            <div class="layer-head"><h3 class="layer-name">Edge and fog</h3><span class="layer-scope">Corridor scale</span></div>
-            <p class="layer-ref">Reference system: V2X-LLM corridor routing (<a href="https://arxiv.org/abs/2503.02239" target="_blank" rel="noopener">Wu et al., 2025</a>)</p>
-            <ol class="flow" aria-label="Data flow"><li>Vehicles and roadside units</li><li>V2X channels (DSRC, C-V2X)</li><li class="cpsi"><span class="cpsi-tag">CPSI boundary</span>Roadside-unit aggregation</li><li>LLM reasoning</li><li>Corridor advisories and routing</li></ol>
-            <p class="layer-gap"><b>Where integrity breaks:</b> many semi-trusted, possibly Sybil, messages are flattened into one confident summary, so the suspicion attached to them never reaches the model.</p>
-          </li>
-          <li class="layer">
-            <div class="layer-head"><h3 class="layer-name">Perception and actuation</h3><span class="layer-scope">Intersection scale</span></div>
-            <p class="layer-ref">Reference system: LLM traffic-signal control such as LA-Light (<a href="https://arxiv.org/abs/2403.08337" target="_blank" rel="noopener">Wang et al., 2024</a>) and LLMLight (<a href="https://arxiv.org/abs/2312.16044" target="_blank" rel="noopener">Lai et al., 2024</a>)</p>
-            <ol class="flow" aria-label="Data flow"><li>Loop detectors and cameras</li><li>MQTT / CoAP telemetry</li><li class="cpsi"><span class="cpsi-tag">CPSI boundary</span>Tool APIs</li><li>LLM context window</li><li>Signal phase change</li></ol>
-            <p class="layer-gap"><b>Where integrity breaks:</b> structured telemetry becomes prompt text, and its origin, freshness and confidence are dropped on the way.</p>
-          </li>
-        </ol>
-      </figure>
-
-      <h2 class="sub-h">Threats</h2>
-      <p>Three classes of threat agent are considered: an <b>infrastructure adversary</b> with network access to weakly governed edge networks; a <b>malicious V2X participant</b> holding valid pseudonymous certificates, software-defined radios or a compromised roadside unit; and a <b>low-privilege or insider user</b> who needs nothing beyond legitimate access to a public or staff interface. Each threat is mapped to CWE and CAPEC, STRIDE and CIA, the OSI layer, MITRE ATT&amp;CK for ICS or ATLAS, and the relevant standard or regulation.</p>
+      <p class="vlm-note case-src">Report: <em>Cognitive-Physical State Integrity: A Behavioral Security Framework for LLM-Integrated Smart City Applications</em> (Apr 2026)</p>
+<section class="research-block"><h2>Aim</h2><p>Find where AI language models in city systems can be misled into acting on a false picture of the city, and propose a defence for each weak point.</p></section>
+<section class="research-block"><h2>What was done</h2><ol class="vlm-steps"><li><b>Map the city in three levels.</b> Street level (sensors and traffic lights), neighbourhood level (connected vehicles), and city level (assistants for residents and staff), each based on a real published or deployed system.</li><li><b>Follow the data.</b> At each level, trace data from source to action and find the step where checks on its origin, freshness or certainty are lost.</li><li><b>Profile the attackers.</b> Three kinds of attacker and four threats, each mapped to the standard security catalogues used by industry.</li><li><b>Walk through real attacks.</b> Three complete attacks, step by step, from first access to real-world harm.</li><li><b>Propose defences.</b> One defence for each level.</li></ol></section>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 1. Where trust is lost at each level.</b> Data flows left to right. The orange step is where the model&#x27;s picture of the city can stop matching reality.</figcaption><ol class="lanes"><li class="lane c1"><div class="ln-head"><b>Street level</b><span>Traffic lights</span></div><ol class="ln-flow"><li class="ln-step">Road sensors and cameras</li><li class="ln-step">Sensor data feed</li><li class="ln-step weak"><span class="weak-tag">trust lost here</span>Tool turns data into text</li><li class="ln-step">AI model</li><li class="ln-step">Traffic light changes</li></ol><p class="ln-note">Where the reading came from and how fresh it is are dropped when it becomes text.</p></li><li class="lane c3"><div class="ln-head"><b>Neighbourhood level</b><span>Connected vehicles</span></div><ol class="ln-flow"><li class="ln-step">Vehicles and roadside units</li><li class="ln-step">Vehicle radio messages</li><li class="ln-step weak"><span class="weak-tag">trust lost here</span>Roadside unit summarises</li><li class="ln-step">AI model</li><li class="ln-step">Route advice to drivers</li></ol><p class="ln-note">Many doubtful messages are merged into one confident summary.</p></li><li class="lane c7"><div class="ln-head"><b>City level</b><span>Resident and staff assistants</span></div><ol class="ln-flow"><li class="ln-step">Questions and city records</li><li class="ln-step">Profile assembled</li><li class="ln-step weak"><span class="weak-tag">trust lost here</span>Model memory and look-up</li><li class="ln-step">AI answer</li><li class="ln-step">Advice and recommendations</li></ol><p class="ln-note">Deleted or restricted information can come back from what the model remembers or infers.</p></li></ol></figure>
+      <h2 class="sub-h">What was found</h2>
+<ul class="finds"><li><b>One root cause at every level.</b> The city acts on what the AI model believes, and nothing checks whether that belief still matches reality. This work names the missing check Cognitive-Physical State Integrity.</li><li><b>Security checks pass, yet the model is fooled.</b> A fake reading can be correctly signed and delivered and still mislead the model.</li><li><b>The model makes small lies bigger.</b> It turns a local trick into confident, city-wide instructions, with a convincing explanation.</li><li><b>Deleting data is not enough.</b> Information removed from a database can be pieced back together by the model from surrounding clues.</li></ul>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 2. Who attacks, how, and what breaks.</b> Each attacker matches one level. None needs to break encryption; the third needs only normal access.</figcaption><ol class="amap"><li class="c1"><span class="am-who"><b>Infrastructure attacker</b><small>Gets into poorly protected sensor networks</small></span><span class="am-arrow" aria-hidden="true"></span><span class="am-what"><em class="tid">T1</em><b>Fake sensor readings</b><small>Street level</small></span><span class="am-arrow" aria-hidden="true"></span><span class="am-harm">Wrong traffic-light timing and gridlock</span></li><li class="c3"><span class="am-who"><b>Malicious vehicle participant</b><small>Holds valid vehicle certificates or radio gear</small></span><span class="am-arrow" aria-hidden="true"></span><span class="am-what"><em class="tid">T2</em><b>A crowd of fake vehicles</b><small>Neighbourhood level</small></span><span class="am-arrow" aria-hidden="true"></span><span class="am-harm">Traffic sent onto the wrong roads</span></li><li class="c7"><span class="am-who"><b>Ordinary user or insider</b><small>Needs only normal access to a city assistant</small></span><span class="am-arrow" aria-hidden="true"></span><span class="am-what"><em class="tid">T3</em><b>Recovering &ldquo;deleted&rdquo; information</b><small>City level</small></span><span class="am-arrow" aria-hidden="true"></span><span class="am-harm">Restricted procedures leaked; residents profiled</span></li></ol></figure>
+<figure class="cpsi-fig vlm-fig wide-fig"><figcaption><b>Figure 3. Three attacks, step by step.</b> Every attack follows the same five steps. Step 3, where trust is lost, is the shared weak point.</figcaption><div class="achain"><ol class="ac-head" aria-hidden="true"><li class="c1"><span class="sn">1</span>Get in</li><li class="c3"><span class="sn">2</span>Plant false data</li><li class="c4"><span class="sn">3</span>Trust is lost</li><li class="c7"><span class="sn">4</span>AI amplifies it</li><li class="c2"><span class="sn">5</span>Real-world harm</li></ol><ol class="ac-rows"><li class="ac-row"><span class="ac-name">Fake traffic</span><ol class="ac-cells"><li class="c1"><span class="sr-only">Get in: </span>Finds an old, weakly protected sensor feed</li><li class="c3"><span class="sr-only">Plant false data: </span>Replays readings that show heavy traffic one way</li><li class="c4"><span class="sr-only">Trust is lost: </span>A tool turns them into a plain sentence with no source or date</li><li class="c7"><span class="sr-only">AI amplifies it: </span>The model holds the green light and explains why, convincingly</li><li class="c2"><span class="sr-only">Real-world harm: </span>Cross traffic jams; emergency vehicles are delayed</li></ol></li><li class="ac-row"><span class="ac-name">Fake crowd of cars</span><ol class="ac-cells"><li class="c1"><span class="sr-only">Get in: </span>Joins the vehicle network with valid certificates</li><li class="c3"><span class="sr-only">Plant false data: </span>Many fake vehicles report a hazard on a highway</li><li class="c4"><span class="sr-only">Trust is lost: </span>The roadside unit reports it as a confirmed incident</li><li class="c7"><span class="sr-only">AI amplifies it: </span>The model issues urgent detour advice</li><li class="c2"><span class="sr-only">Real-world harm: </span>Traffic floods residential streets</li></ol></li><li class="ac-row"><span class="ac-name">Deleted health record</span><ol class="ac-cells"><li class="c1"><span class="sr-only">Get in: </span>Uses the public city assistant like anyone else</li><li class="c3"><span class="sr-only">Plant false data: </span>Asks about a resident&#x27;s travel and parking habits</li><li class="c4"><span class="sr-only">Trust is lost: </span>The label was deleted, but the clues around it were not</li><li class="c7"><span class="sr-only">AI amplifies it: </span>The model infers the deleted condition</li><li class="c2"><span class="sr-only">Real-world harm: </span>Privacy is broken without any database breach</li></ol></li></ol></div></figure>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 4. The proposed fix, in one picture.</b> Today the model receives a bare claim. With the fix, the same claim arrives with its source, freshness and confidence attached.</figcaption><div class="pcomp"><div class="pc pc-bad"><span class="pc-k">What the model sees today</span><code>North&ndash;South traffic is very heavy.</code><p class="pc-out"><b>Model:</b> &ldquo;Extending the green light because of heavy traffic.&rdquo;</p><p class="pc-res bad">Acts on a fake reading, and sounds sure.</p></div><div class="pc pc-good"><span class="pc-k">With the proposed fix</span><code>North&ndash;South traffic is very heavy.<br><i>Confidence: low.</i><br><i>Source: unverified old sensor feed.</i><br><i>Warning: reading is out of date.</i></code><p class="pc-out"><b>Model:</b> can see the reading is doubtful before acting on it.</p><p class="pc-res good">Doubt travels with the data.</p></div></div></figure>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 5. One defence for each level.</b> Each defence targets the step where trust is lost on that level.</figcaption><ol class="defs"><li class="c1"><span class="df-l">Street level</span><span class="df-p">Problem: source and freshness are lost</span><b>Tools that label every reading</b><span>Each value reaches the model with where it came from, how fresh it is and how much to trust it.</span></li><li class="c3"><span class="df-l">Neighbourhood level</span><span class="df-p">Problem: doubt is merged away</span><b>Summaries that keep the doubt</b><span>Roadside units pass on conflicting or suspicious reports, so the model judges them instead of repeating them.</span></li><li class="c7"><span class="df-l">City level</span><span class="df-p">Problem: deleted data comes back</span><b>Constant behaviour checks</b><span>Automated probing of the live model to show that erased information cannot be recovered from context.</span></li></ol></figure>
+      <h2 class="sub-h">Threats in detail</h2>
+      <p>Each threat mapped to the standard catalogues security teams use.</p>
       <div class="table-wrap">
       <table class="data-table threats">
         <caption class="sr-only">Threats, how each one happens, and the frameworks it is mapped to</caption>
@@ -152,21 +129,8 @@
         </tbody>
       </table>
       </div>
-
-      <h2 class="sub-h">Attack scenarios</h2>
-      <p>Each scenario is traced end to end, from foothold to physical or legal impact.</p>
-      <section class="research-block"><h3>Signal starvation through MQTT replay</h3><p>An attacker replays high-occupancy readings into a weakly governed MQTT broker. The occupancy tool hands the LLM a flat sentence with no signature or timestamp; the model extends one green phase and justifies it fluently, and the cross street starves, delaying emergency vehicles.</p></section>
-      <section class="research-block"><h3>Corridor misrouting through a Sybil cluster</h3><p>Using valid pseudonymous certificates, an attacker broadcasts dozens of forged safety messages reporting a hazard. The roadside unit summarizes them as an incident reported by many vehicles, and the corridor LLM turns the summary into urgent rerouting advice that pushes traffic onto residential streets.</p></section>
-      <section class="research-block"><h3>Erasure failure through shadow profiling</h3><p>A resident's health label has been deleted on request, but the surrounding behavioral record has not been masked. Probing the public concierge about transit and parking patterns lets the model infer the deleted status and quietly bias its answers: a privacy violation without any database breach.</p></section>
-
-      <h2 class="sub-h">Proposed framework</h2>
-      <p>The proposal moves the security stack from checking messages to checking the model's behavioral state, with one mechanism per layer.</p>
-      <section class="research-block"><h3>1. Provenance-aware tool APIs</h3><p>Tools that fetch telemetry return signed metadata, freshness and source confidence with every value, so the prompt reads, for example, “occupancy 0.95; confidence low; unverified legacy source; stale”, and the model is conditioned to act on those constraints rather than on the bare number.</p></section>
-      <section class="research-block"><h3>2. Uncertainty-annotated aggregation at roadside units</h3><p>Aggregation keeps spatial and cryptographic conflict markers instead of collapsing them, carrying Sybil suspicion into the prompt so the corridor LLM weighs disputed reports as a skeptical adjudicator rather than amplifying them.</p></section>
-      <section class="research-block"><h3>3. Runtime behavioral verification</h3><p>Post-quantization verification and continuous, automated red-teaming probe the deployed model for knowledge that should be gone, with the goal of showing that erased data cannot be reconstructed from context, as the right to erasure requires.</p></section>
-
-      <h2 class="sub-h">Scope</h2>
-      <p>This is a threat model and a proposed research framework. It does not include an implementation or experiments, so it reports no measured results.</p>
+<section class="research-block"><h2>Why it matters</h2><p>Cities are already handing traffic, routing and resident services to AI models. Firewalls and encryption check that messages arrive safely, not that the model&#x27;s view of the city is true. This work shows where that gap lies and what to build to close it.</p></section>
+      <p class="vlm-note">This is a threat model and a proposed framework. Building and testing the defences is the next step.</p>
       <nav class="pager" aria-label="More case studies"><a href="/projects/csi-fall-detection/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Fall detection from Wi-Fi signals</a><a href="/projects/flood-detection/">Flood detection from drone imagery<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
     </article>
   </div>
