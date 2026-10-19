@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lightweight plant-disease recognition | Taresh Bansal</title>
-<meta name="description" content="A controlled benchmark of phone-sized models for plant-disease recognition across three datasets; the proposed model was the best overall and ran faster than the other Ghost-based models.">
+<title>LightGhost: plant disease on tiny devices | Taresh Bansal</title>
+<meta name="description" content="A tiny plant-disease model taught by a larger one, tested on clean, field and fine-grained photos; it gives the best accuracy for its size, and shows that smaller is not automatically faster.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/plant-disease-edge/">
 <meta property="og:url" content="https://taresh-bansal.github.io/projects/plant-disease-edge/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
-<meta property="og:title" content="Lightweight plant-disease recognition | Taresh Bansal">
-<meta property="og:description" content="A controlled benchmark of phone-sized models for plant-disease recognition across three datasets; the proposed model was the best overall and ran faster than the other Ghost-based models.">
+<meta property="og:title" content="LightGhost: plant disease on tiny devices | Taresh Bansal">
+<meta property="og:description" content="A tiny plant-disease model taught by a larger one, tested on clean, field and fine-grained photos; it gives the best accuracy for its size, and shows that smaller is not automatically faster.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Lightweight plant-disease recognition | Taresh Bansal">
-<meta name="twitter:description" content="A controlled benchmark of phone-sized models for plant-disease recognition across three datasets; the proposed model was the best overall and ran faster than the other Ghost-based models.">
+<meta name="twitter:title" content="LightGhost: plant disease on tiny devices | Taresh Bansal">
+<meta name="twitter:description" content="A tiny plant-disease model taught by a larger one, tested on clean, field and fine-grained photos; it gives the best accuracy for its size, and shows that smaller is not automatically faster.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/main.css?v=202610191148">
+<link rel="stylesheet" href="/assets/css/main.css?v=202610191436">
 <script src="/assets/js/theme.js?v=202610181442"></script>
 <script type="application/ld+json">
 [
@@ -64,9 +64,9 @@
  {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Lightweight plant-disease recognition | Taresh Bansal",
+  "name": "LightGhost: plant disease on tiny devices | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/plant-disease-edge/",
-  "description": "A controlled benchmark of phone-sized models for plant-disease recognition across three datasets; the proposed model was the best overall and ran faster than the other Ghost-based models.",
+  "description": "A tiny plant-disease model taught by a larger one, tested on clean, field and fine-grained photos; it gives the best accuracy for its size, and shows that smaller is not automatically faster.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -96,30 +96,26 @@
   <div class="container post">
     <p class="crumbs"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Projects</a></p>
     <header class="post-header">
-      <h1 class="post-title">Lightweight plant-disease recognition</h1>
-      <p class="post-description">Mar – Aug 2026 · BITS Pilani</p>
+      <h1 class="post-title">LightGhost: plant disease on tiny devices</h1>
+      <p class="post-description">Mar – Aug 2026 · Sole author</p>
     </header>
     <article class="case">
       <div class="case-hero">
-        <p class="case-kicker">Efficient models · Computer vision</p>
-        <p class="case-headline">Which small models are worth deploying for crop-disease detection?</p>
-        <p class="case-lead">A controlled comparison of compact image models small enough for phones, trained and timed the same way on three plant-disease datasets.</p>
+        <p class="case-kicker">Efficient models · Agriculture</p>
+        <p class="case-headline">A tiny model that recognises crop disease in real field photos</p>
+        <p class="case-lead">Farm sensors and cheap phones have little memory and no special chip, so accurate models do not fit and small ones struggle on messy field photos. This work trains a tiny model with help from a larger teacher, and tests where that helps and where it does not.</p>
       </div>
-      <section class="research-block"><h2>Question</h2><p>Many small image models claim to be mobile-ready. Which ones hold up once they are compared on the same data and measured the same way?</p></section>
-      <section class="research-block"><h2>Approach</h2><p>Compared a proposed compact model with other lightweight architectures of similar size, including several Ghost-based models (GhostNet-style lightweight convolutions). Tested CBAM, a common attention add-on, as an ablation, and timed inference per image, averaged over repeated runs.</p></section>
-      <section class="research-block"><h2>Results</h2><ul>
-          <li>The proposed model was the best overall, and the most accurate on the hardest dataset.</li>
-          <li>CBAM attention hurt rather than helped: adding it lowered accuracy on the hardest dataset.</li>
-          <li>It ran faster per image than the other Ghost-based models.</li>
-        </ul></section>
-      <h2 class="sub-h">Setup</h2>
-      <dl class="facts">
-        <dt>Models</dt><dd>Compact architectures of similar size, including Ghost-based models</dd>
-        <dt>Data</dt><dd>Three plant-disease image datasets; the hardest has the most disease classes</dd>
-        <dt>Measurements</dt><dd>Accuracy per dataset; CBAM ablation; time per image, averaged over repeated runs</dd>
-        <dt>Tools</dt><dd>PyTorch, computer vision</dd>
-      </dl>
-      <nav class="pager" aria-label="More case studies"><a href="/projects/iomt-intrusion-detection/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Drift-resilient IoMT intrusion detection</a><a href="/projects/csi-fall-detection/">CSI-based fall detection<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
+<section class="research-block"><h2>Aim</h2><p>Build a plant-disease model small enough for cheap phones and farm sensors that still works on real field photos, and test honestly whether smaller also means faster.</p></section>
+<section class="research-block"><h2>What was done</h2><ol class="vlm-steps"><li><b>Teach a small model with a large one.</b> A large, accurate model (the teacher) shows a tiny one (the student) not just the right answer but which diseases look alike. This is called knowledge distillation.</li><li><b>Train on harder images.</b> Photos are blended and altered during training, and teacher and student always see the same version.</li><li><b>Test on three kinds of data.</b> A large clean multi-crop set, real photos taken in the field, and a set with many look-alike diseases.</li><li><b>Compare broadly.</b> Against standard small models and several modified designs, on accuracy, size, how trustworthy the confidence is, and speed.</li></ol></section>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 1. How LightGhost is built.</b> The teacher is used only during training; the deployed model is the tiny student.</figcaption><ol class="vlm-pipe pipe-n" style="--n:5" aria-label="Pipeline: a large teacher model and a tiny student see the same altered leaf photo; the student learns from the teacher and is the only model deployed."><li class="st c1"><span class="vp-k">Input</span><b>A leaf photo</b><ul class="vp-chips"><li>Mixed and altered copies</li></ul></li><li class="st c3"><span class="vp-k">Teach</span><b>Large teacher model</b><ul class="vp-chips"><li>Knows which diseases look alike</li></ul></li><li class="st c7"><span class="vp-k">Learn</span><b>Tiny student model</b><ul class="vp-chips"><li>Learns the answer</li><li>and the teacher&#x27;s view</li></ul></li><li class="st c4"><span class="vp-k">Deploy</span><b>Only the student ships</b><ul class="vp-chips"><li>Fits on a cheap phone or sensor</li></ul></li><li class="st c2 vp-out"><span class="vp-k">Output</span><b>Disease name and a top-three shortlist</b></li></ol></figure>
+      <h2 class="sub-h">What was found</h2>
+<ul class="finds"><li><b>Best accuracy for its size</b> among the models accurate enough to use.</li><li><b>Biggest gains on real field photos,</b> where the standard small model struggles most.</li><li><b>A reliable shortlist.</b> For most field photos the right disease is in its top three, and its confidence scores are well calibrated.</li><li><b>Small is not the same as fast.</b> Despite being one of the smallest models, it was slower than its much larger teacher, because its building blocks wait on memory rather than arithmetic.</li></ul>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 2. Accuracy on each kind of data.</b> Every model does well on clean photos and far worse on real field photos. LightGhost clearly beats the standard small model there.</figcaption><ul class="lg"><li><span class="sw c1"></span>Clean, many photos</li><li><span class="sw c2"></span>Real field photos</li><li><span class="sw c3"></span>Many look-alike diseases</li></ul><div class="vf" role="img" aria-label="Grouped bars of accuracy on three datasets: all models do well on clean photos and much worse on field photos; LightGhost beats the standard small model clearly on field photos."><ol class="vf-rows"><li><span class="vf-name">LightGhost<small>this work, tiny</small></span><span class="hb-track grp"><span class="hb c1" style="width:93.66%"></span><span class="hb c2" style="width:64.41%"></span><span class="hb c3" style="width:66.00%"></span></span></li><li><span class="vf-name">MobileNetV3<small>standard small model</small></span><span class="hb-track grp"><span class="hb c1" style="width:94.90%"></span><span class="hb c2" style="width:55.08%"></span><span class="hb c3" style="width:62.34%"></span></span></li><li><span class="vf-name">Attentive ProtoNet<small>modified design</small></span><span class="hb-track grp"><span class="hb c1" style="width:92.60%"></span><span class="hb c2" style="width:67.80%"></span><span class="hb c3" style="width:63.30%"></span></span></li><li><span class="vf-name">ShuffleNetV2<small>standard, smallest</small></span><span class="hb-track grp"><span class="hb c1" style="width:90.51%"></span><span class="hb c2" style="width:59.75%"></span><span class="hb c3" style="width:59.90%"></span></span></li><li><span class="vf-name">SqueezeNet<small>standard small model</small></span><span class="hb-track grp"><span class="hb c1" style="width:87.46%"></span><span class="hb c2" style="width:57.63%"></span><span class="hb c3" style="width:56.76%"></span></span></li><li><span class="vf-name">EfficientNet-B0<small>the teacher, much larger</small></span><span class="hb-track grp"><span class="hb c1" style="width:96.35%"></span><span class="hb c2" style="width:66.53%"></span><span class="hb c3" style="width:72.36%"></span></span></li></ol><div class="vf-axis"><span style="left:0">Lower</span><span class="vf-axis-r">Higher accuracy &rarr;</span></div></div></figure>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 3. Accuracy against model size.</b> Each dot is one model, placed by its size and its average accuracy across the three datasets. Up and to the left is better.</figcaption><ul class="lg"><li><span class="sw c2"></span>LightGhost</li><li><span class="sw c1"></span>Other models</li><li><span class="sw c3"></span>The teacher</li></ul><div class="sc" role="img" aria-label="Scatter of model size against average accuracy: LightGhost reaches high accuracy at one of the smallest sizes."><p class="sc-yl">&uarr; More accurate</p><div class="sc-plot"><span class="sc-zone tl" style="width:36%;height:36%"><span>Small and accurate</span></span><span class="sc-pt c2" style="left:24.7%;bottom:72.9%"><i></i><em class="l up">LightGhost</em></span><span class="sc-pt c1" style="left:26.7%;bottom:72.5%"><i></i><em class="r dn"><span class="lf">Attentive </span>ProtoNet</em></span><span class="sc-pt c1" style="left:35.8%;bottom:58.4%"><i></i><em class="r dn">MobileNetV3</em></span><span class="sc-pt c1" style="left:8.4%;bottom:55.7%"><i></i><em class="r">ShuffleNetV2</em></span><span class="sc-pt c1" style="left:17.0%;bottom:45.5%"><i></i><em class="r">SqueezeNet</em></span><span class="sc-pt c1" style="left:37.7%;bottom:61.2%"><i></i><em class="r">PhytoGhost</em></span><span class="sc-pt c1" style="left:47.2%;bottom:79.7%"><i></i><em class="r">Larger distilled<span class="lf"> model</span></em></span><span class="sc-pt c1" style="left:49.5%;bottom:9.8%"><i></i><em class="r">NanoVLM</em></span><span class="sc-pt c3" style="left:94.0%;bottom:86.7%"><i></i><em class="l">Teacher</em></span></div><div class="sc-x"><span>&larr; Smaller</span><span>Larger &rarr;</span></div></div></figure>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 4. Time to classify one image.</b> Longer bars are slower. LightGhost is one of the smallest models yet slower than its much larger teacher: size and speed are separate goals, and both should be reported.</figcaption><ul class="lg"><li><span class="sw c2"></span>LightGhost</li><li><span class="sw c1"></span>Other models</li><li><span class="sw c3"></span>The teacher</li></ul><div class="vf" role="img" aria-label="Bar chart of time per image: LightGhost, despite being tiny, is slower than its larger teacher and the standard small models."><ol class="vf-rows"><li><span class="vf-name">LightGhost<small>this work</small></span><span class="hb-track"><span class="hb c2" style="width:85.65%"></span></span></li><li><span class="vf-name">PhytoGhost<small>also Ghost-style</small></span><span class="hb-track"><span class="hb c1" style="width:89.60%"></span></span></li><li><span class="vf-name">EfficientNet-B0<small>the teacher, much larger</small></span><span class="hb-track"><span class="hb c3" style="width:37.25%"></span></span></li><li><span class="vf-name">MobileNetV3<small>standard small model</small></span><span class="hb-track"><span class="hb c1" style="width:23.45%"></span></span></li><li><span class="vf-name">SqueezeNet<small>standard small model</small></span><span class="hb-track"><span class="hb c1" style="width:8.35%"></span></span></li></ol><div class="vf-axis"><span style="left:0">Faster</span><span class="vf-axis-r">Slower &rarr;</span></div></div></figure>
+<section class="research-block"><h2>Why it matters</h2><p>A farmer&#x27;s phone or a field sensor needs a model that fits and still works outdoors. This work shows a teacher can make a tiny model far more useful on field photos, and warns that model size alone does not predict speed on a real device.</p></section>
+      <p class="vlm-note">Each model was trained once, and speed was measured on a laptop rather than on farm hardware; both are noted as limits in the paper.</p>
+      <nav class="pager" aria-label="More case studies"><a href="/projects/iomt-intrusion-detection/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Drift-resilient IoMT intrusion detection</a><a href="/projects/csi-fall-detection/">Fall detection from Wi-Fi signals<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
     </article>
   </div>
 </main>

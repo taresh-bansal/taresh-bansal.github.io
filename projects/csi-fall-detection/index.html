@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CSI-based fall detection | Taresh Bansal</title>
-<meta name="description" content="Competing convolutional kernels for device-free fall detection from Wi-Fi channel state information, for disabled and elderly people. Published in IEEE Internet of Things Magazine, 2025.">
+<title>Fall detection from Wi-Fi signals | Taresh Bansal</title>
+<meta name="description" content="Detecting falls from ordinary Wi-Fi signals with groups of competing patterns, with nothing to wear. Published in IEEE Internet of Things Magazine, 2025.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/csi-fall-detection/">
 <meta property="og:url" content="https://taresh-bansal.github.io/projects/csi-fall-detection/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
-<meta property="og:title" content="CSI-based fall detection | Taresh Bansal">
-<meta property="og:description" content="Competing convolutional kernels for device-free fall detection from Wi-Fi channel state information, for disabled and elderly people. Published in IEEE Internet of Things Magazine, 2025.">
+<meta property="og:title" content="Fall detection from Wi-Fi signals | Taresh Bansal">
+<meta property="og:description" content="Detecting falls from ordinary Wi-Fi signals with groups of competing patterns, with nothing to wear. Published in IEEE Internet of Things Magazine, 2025.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CSI-based fall detection | Taresh Bansal">
-<meta name="twitter:description" content="Competing convolutional kernels for device-free fall detection from Wi-Fi channel state information, for disabled and elderly people. Published in IEEE Internet of Things Magazine, 2025.">
+<meta name="twitter:title" content="Fall detection from Wi-Fi signals | Taresh Bansal">
+<meta name="twitter:description" content="Detecting falls from ordinary Wi-Fi signals with groups of competing patterns, with nothing to wear. Published in IEEE Internet of Things Magazine, 2025.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/main.css?v=202610191148">
+<link rel="stylesheet" href="/assets/css/main.css?v=202610191436">
 <script src="/assets/js/theme.js?v=202610181442"></script>
 <script type="application/ld+json">
 [
@@ -64,9 +64,9 @@
  {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "CSI-based fall detection | Taresh Bansal",
+  "name": "Fall detection from Wi-Fi signals | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/csi-fall-detection/",
-  "description": "Competing convolutional kernels for device-free fall detection from Wi-Fi channel state information, for disabled and elderly people. Published in IEEE Internet of Things Magazine, 2025.",
+  "description": "Detecting falls from ordinary Wi-Fi signals with groups of competing patterns, with nothing to wear. Published in IEEE Internet of Things Magazine, 2025.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -96,22 +96,28 @@
   <div class="container post">
     <p class="crumbs"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Projects</a></p>
     <header class="post-header">
-      <h1 class="post-title">CSI-based fall detection</h1>
-      <p class="post-description">2025</p>
+      <h1 class="post-title">Fall detection from Wi-Fi signals</h1>
+      <p class="post-description">2025 · IEEE Internet of Things Magazine</p>
     </header>
     <article class="case">
       <div class="case-hero">
-        <p class="case-kicker">Wireless sensing · Time-series classification</p>
-        <p class="case-headline">Detecting falls from Wi-Fi signals, without wearables</p>
-        <p class="case-lead">Wi-Fi channel state information (CSI) changes as people move. This paper classifies those changes to detect falls of disabled and elderly people without any wearable device.</p>
-        <div class="btn-row"><a class="btn btn-primary" href="https://doi.org/10.1109/MIOT.2025.3588213" target="_blank" rel="noopener">Read the paper (DOI)</a><a class="btn" href="/publications/#bibtex-fall">BibTeX</a></div>
+        <p class="case-kicker">Wireless sensing · Health monitoring</p>
+        <p class="case-headline">Spotting falls from ordinary Wi-Fi, with nothing to wear</p>
+        <p class="case-lead">Wearable fall sensors are uncomfortable, need charging and are often left off. Wi-Fi signals change as a person moves through a room, and this method reads those changes to tell a fall from everyday movement.</p>
       </div>
-      <section class="research-block"><h2>Problem</h2><p>Wearable fall detectors only work when they are worn and charged. A detector that reads the Wi-Fi signals already in the room has no such dependence.</p></section>
-      <section class="research-block"><h2>Approach</h2><p>CSI streams are treated as time series and classified with randomly generated convolutional kernels, grouped into pattern dictionaries that compete with each other (“competing kernels”). Features come from hard and soft counting of kernel matches and from first-order differences of the signal.</p></section>
-      <section class="research-block"><h2>Results</h2><p>On a public CSI dataset the method improves on the best previously reported F1 score.</p></section>
+<section class="research-block"><h2>Aim</h2><p>Detect falls of disabled and elderly people from ordinary Wi-Fi signals, with nothing to wear and accurately enough to trust.</p></section>
+<section class="research-block"><h2>What was done</h2><ol class="vlm-steps"><li><b>Sense with Wi-Fi.</b> As a person moves, they change how Wi-Fi signals travel between a router and a receiver. A public dataset records these changes while people walk, sit, stand, lie down, run and fall.</li><li><b>Look for patterns that compete.</b> Many small random patterns slide along the signal. They are split into groups, and inside each group only the closest match is counted at each moment.</li><li><b>Classify the counts.</b> The counts, taken from the signal and from how fast it changes, go to a simple classifier that answers one question: fall or not?</li><li><b>Compare.</b> Against three deep-learning models and the best previously published method on the same data.</li></ol></section>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 1. How the method works.</b> Only the last step is trained; the patterns are random and fixed, which keeps the method light.</figcaption><ol class="vlm-pipe pipe-n" style="--n:5" aria-label="Pipeline: Wi-Fi signals are cleaned, matched against groups of competing patterns, counted, and classified as fall or no fall."><li class="st c1"><span class="vp-k">Sense</span><b>Wi-Fi router and receiver</b><ul class="vp-chips"><li>No device on the body</li></ul></li><li class="st c3"><span class="vp-k">Clean</span><b>Standardise the signal</b><ul class="vp-chips"><li>Raw signal</li><li>Its rate of change</li></ul></li><li class="st c7"><span class="vp-k">Match</span><b>Groups of competing patterns</b><ul class="vp-chips"><li>Best match in each group is counted</li></ul></li><li class="st c4"><span class="vp-k">Classify</span><b>A simple classifier reads the counts</b></li><li class="st c2 vp-out"><span class="vp-k">Decide</span><b>Fall or no fall?</b></li></ol></figure>
+<figure class="cpsi-fig vlm-fig kfig"><figcaption><b>Figure 2. Patterns compete inside each group.</b> At each moment, the pattern that best matches the signal wins and is counted; the counts describe the movement.</figcaption><svg viewBox="0 0 270 70" class="ksvg" aria-hidden="true"><path d="M4 40 C14 40 18 18 28 18 S40 52 52 52 S66 28 76 28 S90 40 96 40" class="sigline"/><rect x="20" y="10" width="18" height="44" rx="3" class="win"/><g transform="translate(120,18)"><rect x="-4" y="-4" width="24" height="22" rx="4" class="kbox w"/><path d="M0 10 L8 4 L16 10" class="kpath w"/></g><g transform="translate(156,18)"><rect x="-4" y="-4" width="24" height="22" rx="4" class="kbox "/><path d="M0 4 L8 10 L16 4" class="kpath "/></g><g transform="translate(192,18)"><rect x="-4" y="-4" width="24" height="22" rx="4" class="kbox "/><path d="M0 7 L16 7" class="kpath "/></g><g transform="translate(228,18)"><rect x="-4" y="-4" width="24" height="22" rx="4" class="kbox "/><path d="M0 10 L16 4" class="kpath "/></g><text x="120" y="62" class="klab">One group of patterns</text><text x="120" y="8" class="klab win-t">best match: +1</text></svg></figure>
+      <h2 class="sub-h">What was found</h2>
+<section class="research-block"><h2>Reading the results</h2><p>Falls are rare, so a model can look accurate while missing them. The fair test is two plain questions: how many real falls were caught, and how many alarms were real falls?</p></section>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 3. Falls are a small share of the recordings.</b> This is why overall accuracy alone is misleading for this task.</figcaption><div class="prop" role="img" aria-label="Falls are a small share of all recordings."><span class="prop-a c1" style="width:90.1%"><em>Everyday activities</em></span><span class="prop-b c2" style="width:9.9%"></span></div><p class="prop-cap"><span class="sw c2"></span>Falls</p></figure>
+<ul class="finds"><li><b>Catches more real falls</b> than any model it was compared with.</li><li><b>Raises fewer false alarms</b> than any model it was compared with.</li><li><b>Clearly ahead of the best published method</b> on the measure that balances both.</li></ul>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 4. Falls caught and alarms that were real.</b> For each model, blue is the share of real falls caught and orange the share of alarms that were real falls. This work leads on both.</figcaption><ul class="lg"><li><span class="sw c1"></span>Real falls caught</li><li><span class="sw c2"></span>Alarms that were real</li></ul><div class="vf" role="img" aria-label="Grouped bars: this work catches the most real falls and has the most trustworthy alarms of all five models."><ol class="vf-rows"><li><span class="vf-name">This work<small>competing patterns</small></span><span class="hb-track grp"><span class="hb c1" style="width:86.36%"></span><span class="hb c2" style="width:92.68%"></span></span></li><li><span class="vf-name">GRU<small>deep learning</small></span><span class="hb-track grp"><span class="hb c1" style="width:79.55%"></span><span class="hb c2" style="width:87.50%"></span></span></li><li><span class="vf-name">FCN<small>deep learning</small></span><span class="hb-track grp"><span class="hb c1" style="width:79.55%"></span><span class="hb c2" style="width:87.50%"></span></span></li><li><span class="vf-name">LSTM<small>best published before</small></span><span class="hb-track grp"><span class="hb c1" style="width:77.27%"></span><span class="hb c2" style="width:85.00%"></span></span></li><li><span class="vf-name">RNN<small>deep learning</small></span><span class="hb-track grp"><span class="hb c1" style="width:50.00%"></span><span class="hb c2" style="width:70.97%"></span></span></li></ol><div class="vf-axis"><span style="left:0">Lower</span><span class="vf-axis-r">Higher &rarr;</span></div></div></figure>
+<section class="research-block"><h2>Why it matters</h2><p>Wearable sensors are uncomfortable, need charging and are often left off. Wi-Fi is already in most homes and care settings, so fall detection can run in the background, with nothing for the person to remember.</p></section>
       <h2 class="sub-h">Publication</h2>
-      <p>Siva Sai, <strong>Taresh Bansal</strong>, Vinay Chamola. “A Novel Competing Convolutional Kernels Method to CSI-Based Fall Detection for Disabled People.” <em>IEEE Internet of Things Magazine</em>, 2025. <a href="https://doi.org/10.1109/MIOT.2025.3588213" target="_blank" rel="noopener">doi.org/10.1109/MIOT.2025.3588213</a></p>
-      <nav class="pager" aria-label="More case studies"><a href="/projects/plant-disease-edge/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Lightweight plant-disease recognition</a><a href="/projects/smart-city-llm-security/">Behavioral security for LLM-integrated smart cities<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
+      <p>Siva Sai, <strong>Taresh Bansal</strong>, Vinay Chamola. &ldquo;A Novel Competing Convolutional Kernels Method to CSI-Based Fall Detection for Disabled People.&rdquo; <em>IEEE Internet of Things Magazine</em>, 2025. <a href="https://doi.org/10.1109/MIOT.2025.3588213" target="_blank" rel="noopener">Read the paper (DOI)</a></p>
+      <nav class="pager" aria-label="More case studies"><a href="/projects/plant-disease-edge/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>LightGhost: plant disease on tiny devices</a><a href="/projects/smart-city-llm-security/">Behavioral security for LLM-integrated smart cities<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
     </article>
   </div>
 </main>

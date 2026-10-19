@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Drift-resilient IoMT intrusion detection | Taresh Bansal</title>
-<meta name="description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that adapt to traffic drift by updating on the fly instead of retraining from scratch.">
+<meta name="description" content="An attack detector for hospital device networks that learns from every new record and rechecks its own past decisions, so it stays accurate without retraining.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/iomt-intrusion-detection/">
@@ -12,14 +12,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
 <meta property="og:title" content="Drift-resilient IoMT intrusion detection | Taresh Bansal">
-<meta property="og:description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that adapt to traffic drift by updating on the fly instead of retraining from scratch.">
+<meta property="og:description" content="An attack detector for hospital device networks that learns from every new record and rechecks its own past decisions, so it stays accurate without retraining.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Drift-resilient IoMT intrusion detection | Taresh Bansal">
-<meta name="twitter:description" content="Taresh Bansal&#x27;s first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that adapt to traffic drift by updating on the fly instead of retraining from scratch.">
+<meta name="twitter:description" content="An attack detector for hospital device networks that learns from every new record and rechecks its own past decisions, so it stays accurate without retraining.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/main.css?v=202610191148">
+<link rel="stylesheet" href="/assets/css/main.css?v=202610191436">
 <script src="/assets/js/theme.js?v=202610181442"></script>
 <script type="application/ld+json">
 [
@@ -66,7 +66,7 @@
   "@type": "WebPage",
   "name": "Drift-resilient IoMT intrusion detection | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/iomt-intrusion-detection/",
-  "description": "Taresh Bansal's first-author research: adaptive Hoeffding trees for intrusion detection in Internet of Medical Things networks that adapt to traffic drift by updating on the fly instead of retraining from scratch.",
+  "description": "An attack detector for hospital device networks that learns from every new record and rechecks its own past decisions, so it stays accurate without retraining.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -97,27 +97,26 @@
     <p class="crumbs"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Projects</a></p>
     <header class="post-header">
       <h1 class="post-title">Drift-resilient IoMT intrusion detection</h1>
-      <p class="post-description">Jan – Feb 2026 · BITS Pilani</p>
+      <p class="post-description">Jan – Feb 2026 · First-author paper, under review</p>
     </header>
     <article class="case">
       <div class="case-hero">
-        <p class="case-kicker">IoT security · Concept drift</p>
-        <p class="case-headline">An intrusion detector that adapts as medical IoT traffic shifts</p>
-        <p class="case-lead">Internet of Medical Things (IoMT) devices produce network traffic whose patterns change over time, so a detector trained once goes stale. This work keeps the detector current by updating it incrementally as traffic arrives, instead of retraining it from scratch.</p>
-        <div class="btn-row"><a class="btn" href="/publications/#iomt-drift-resilient-intrusion-detection">Publication entry</a></div>
+        <p class="case-kicker">Medical device security · Learning on the fly</p>
+        <p class="case-headline">An attack detector that keeps learning as hospital network traffic changes</p>
+        <p class="case-lead">Hospital devices send patient data over networks that attackers can reach. Attacks change over time, so a detector trained once goes out of date, and retraining it from scratch is slow. This work builds a detector that updates itself with every new record.</p>
       </div>
-      <section class="research-block"><h2>Problem</h2><p>Retraining a batch model every time medical IoT traffic shifts is slow, and until it finishes the detector is out of date.</p></section>
-      <section class="research-block"><h2>Approach</h2><p>Adaptive Hoeffding trees with internal node reassessment. A Hoeffding tree grows incrementally from streaming data; reassessing internal nodes re-checks earlier splits as new data arrives, so the tree can adapt when the traffic distribution drifts. The model learns from the WUSTL-EHMS-2020 dataset as a stream, after cleaning, with the attack class balanced by SMOTE oversampling.</p></section>
-      <section class="research-block"><h2>Results</h2><p>On WUSTL-EHMS-2020 the model is more accurate than every incremental baseline and every batch-retrained baseline, and it raises no false alarms on the test set. Each update is faster than retraining any of the batch models, so the detector keeps pace with the traffic instead of falling behind it.</p></section>
+<section class="research-block"><h2>Aim</h2><p>Build an attack detector for networks of medical devices that stays accurate as attacks change, without stopping to retrain.</p></section>
+<section class="research-block"><h2>What was done</h2><ol class="vlm-steps"><li><b>Use real hospital-style data.</b> A public testbed (WUSTL-EHMS-2020) that records both network traffic and patients&#x27; vital signs, each record marked normal or attack.</li><li><b>Learn from a stream.</b> Records arrive one at a time and update a decision tree on the spot, so there is never a slow retraining step.</li><li><b>Recheck old decisions.</b> The tree regularly revisits its earlier splits, replacing ones that are no longer best and pruning branches that no longer help.</li><li><b>Compare fairly.</b> Against four models that also learn as they go and three that must be retrained from scratch, on accuracy and on time per update.</li></ol></section>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 1. How the detector works.</b> Traffic from hospital devices flows in one record at a time; the tree updates with every record and labels it.</figcaption><ol class="vlm-pipe pipe-n" style="--n:4" aria-label="Pipeline: hospital device traffic is streamed one record at a time into a self-updating decision tree, which labels each record normal or attack."><li class="st c1"><span class="vp-k">Collect</span><b>Hospital device traffic</b><ul class="vp-chips"><li>Network traffic</li><li>Patient vital signs</li></ul></li><li class="st c3"><span class="vp-k">Stream</span><b>One record at a time</b><ul class="vp-chips"><li>No stored batch</li><li>No retraining</li></ul></li><li class="st c7"><span class="vp-k">Learn</span><b>Self-updating decision tree</b><ul class="vp-chips"><li>Grows with new evidence</li><li>Rechecks old splits</li></ul></li><li class="st c2 vp-out"><span class="vp-k">Decide</span><b>Normal or attack?</b></li></ol></figure>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 2. How the tree keeps itself current.</b> Three moves, each taken only when the new data gives strong enough evidence.</figcaption><ol class="mech"><li class="c3"><svg viewBox="0 0 100 88" class="mt" aria-hidden="true"><line x1="50" y1="14" x2="28" y2="44"/><line x1="50" y1="14" x2="72" y2="44"/><line x1="72" y1="44" x2="60" y2="74" class="new"/><line x1="72" y1="44" x2="84" y2="74" class="new"/><circle cx="50" cy="14" r="7" class=""/><circle cx="28" cy="44" r="7" class=""/><circle cx="72" cy="44" r="7" class=""/><circle cx="60" cy="74" r="7" class="new"/><circle cx="84" cy="74" r="7" class="new"/></svg><b>Grow</b><span>Split a branch once enough new evidence says it helps.</span></li><li class="c7"><svg viewBox="0 0 100 88" class="mt" aria-hidden="true"><line x1="50" y1="14" x2="28" y2="44"/><line x1="50" y1="14" x2="72" y2="44"/><circle cx="50" cy="14" r="7" class="swap"/><circle cx="28" cy="44" r="7" class=""/><circle cx="72" cy="44" r="7" class=""/></svg><b>Replace</b><span>Swap an old split that is no longer the best one.</span></li><li class="c2"><svg viewBox="0 0 100 88" class="mt" aria-hidden="true"><line x1="50" y1="14" x2="28" y2="44"/><line x1="50" y1="14" x2="72" y2="44"/><line x1="28" y1="44" x2="16" y2="74" class="cut"/><line x1="28" y1="44" x2="40" y2="74" class="cut"/><circle cx="50" cy="14" r="7" class=""/><circle cx="28" cy="44" r="7" class=""/><circle cx="72" cy="44" r="7" class=""/><circle cx="16" cy="74" r="7" class="cut"/><circle cx="40" cy="74" r="7" class="cut"/></svg><b>Prune</b><span>Cut a branch that no longer helps.</span></li></ol></figure>
+      <h2 class="sub-h">What was found</h2>
+<ul class="finds"><li><b>Most accurate of every model tested,</b> both those that learn as they go and those retrained from scratch.</li><li><b>No false alarms on the test set:</b> every record it flagged as an attack was an attack.</li><li><b>Fast enough to keep up.</b> Each update takes less time than retraining any of the batch models, so the detector never falls behind the traffic.</li></ul>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 3. Accuracy of every model.</b> Orange is this work; blue models also learn as they go; green models are retrained from scratch on all the data.</figcaption><ul class="lg"><li><span class="sw c2"></span>This work</li><li><span class="sw c1"></span>Learns as it goes</li><li><span class="sw c3"></span>Retrained from scratch</li></ul><div class="vf" role="img" aria-label="Bar chart of accuracy: this work is the most accurate of all eight models."><ol class="vf-rows"><li><span class="vf-name">This work<small>self-updating tree</small></span><span class="hb-track"><span class="hb c2" style="width:99.94%"></span></span></li><li><span class="vf-name">Perceptron<small>learns as it goes</small></span><span class="hb-track"><span class="hb c1" style="width:90.89%"></span></span></li><li><span class="vf-name">Half-space trees<small>learns as it goes</small></span><span class="hb-track"><span class="hb c1" style="width:81.98%"></span></span></li><li><span class="vf-name">Logistic regression<small>learns as it goes</small></span><span class="hb-track"><span class="hb c1" style="width:76.97%"></span></span></li><li><span class="vf-name">One-class SVM<small>learns as it goes</small></span><span class="hb-track"><span class="hb c1" style="width:50.10%"></span></span></li><li><span class="vf-name">NuSVC<small>retrained from scratch</small></span><span class="hb-track"><span class="hb c3" style="width:94.24%"></span></span></li><li><span class="vf-name">Lasso<small>retrained from scratch</small></span><span class="hb-track"><span class="hb c3" style="width:87.43%"></span></span></li><li><span class="vf-name">Isolation forest<small>retrained from scratch</small></span><span class="hb-track"><span class="hb c3" style="width:38.80%"></span></span></li></ol><div class="vf-axis"><span style="left:0">Lower</span><span class="vf-axis-r">More attacks and normal traffic labelled correctly &rarr;</span></div></div></figure>
+<figure class="cpsi-fig vlm-fig "><figcaption><b>Figure 4. Speed against accuracy.</b> Each dot is one model; the time axis grows tenfold at each step. Only this work is both fast to update and highly accurate.</figcaption><ul class="lg"><li><span class="sw c2"></span>This work</li><li><span class="sw c3"></span>Retrained from scratch</li></ul><div class="sc" role="img" aria-label="Scatter: this work sits alone in the fast and accurate corner; the retrained models are either slower or less accurate."><p class="sc-yl">&uarr; More accurate</p><div class="sc-plot"><span class="sc-zone br" style="width:32%;height:22%"><span>Fast and accurate</span></span><span class="sc-pt c2" style="left:10.1%;bottom:89.7%"><i></i><em class="r">This work</em></span><span class="sc-pt c3" style="left:13.2%;bottom:73.6%"><i></i><em class="r">Lasso</em></span><span class="sc-pt c3" style="left:68.3%;bottom:82.4%"><i></i><em class="l">NuSVC</em></span><span class="sc-pt c3" style="left:90.3%;bottom:11.3%"><i></i><em class="l">Isolation forest</em></span></div><div class="sc-x"><span>&larr; Faster to update</span><span>Slower &rarr;</span></div></div></figure>
+<section class="research-block"><h2>Why it matters</h2><p>Hospitals cannot take a security system offline every time attackers change tactics. A detector that learns continuously, and corrects its own past decisions, stays useful without that downtime.</p></section>
       <h2 class="sub-h">Publication</h2>
-      <p><strong>Taresh Bansal</strong>, Siva Sai, Vinay Chamola, Mohan Gurusamy. “Drift-Resilient Intrusion Detection in IoMT Networks Using Adaptive Hoeffding Trees with Internal Node Reassessment.” Under review at <em>IEEE Internet of Things Magazine</em>, submitted Sep 2026.</p>
-      <h2 class="sub-h">Methods and data</h2>
-      <dl class="facts">
-        <dt>Model</dt><dd>Adaptive Hoeffding trees with internal node reassessment</dd>
-        <dt>Data</dt><dd>WUSTL-EHMS-2020, cleaned; classes balanced with SMOTE oversampling</dd>
-        <dt>Baselines</dt><dd>Incremental learners (Perceptron, Half-Space Trees, logistic regression, one-class SVM); batch models retrained from scratch (Lasso, NuSVC, Isolation Forest)</dd>
-      </dl>
-      <nav class="pager" aria-label="More case studies"><a href="/projects/medical-vlm-grounding/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Do medical AI models actually look at the X-ray?</a><a href="/projects/plant-disease-edge/">Lightweight plant-disease recognition<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
+      <p><strong>Taresh Bansal</strong>, Siva Sai, Vinay Chamola, Mohan Gurusamy. &ldquo;Drift-Resilient Intrusion Detection in IoMT Networks Using Adaptive Hoeffding Trees with Internal Node Reassessment.&rdquo; Under review at <em>IEEE Internet of Things Magazine</em>. <a href="/publications/#iomt-drift-resilient-intrusion-detection">Publication entry</a></p>
+      <nav class="pager" aria-label="More case studies"><a href="/projects/medical-vlm-grounding/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Do medical AI models actually look at the X-ray?</a><a href="/projects/plant-disease-edge/">LightGhost: plant disease on tiny devices<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
     </article>
   </div>
 </main>
