@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Auditing visual grounding in medical VLMs | Taresh Bansal</title>
-<meta name="description" content="Do medical vision-language models actually look at the X-ray? A preregistered audit that changes the image and watches the report, across chest X-ray specialists, medical generalists and a general-purpose model.">
+<title>Do medical AI models actually look at the X-ray? | Taresh Bansal</title>
+<meta name="description" content="AI models that write chest X-ray reports are graded on how well the report matches a radiologist&#x27;s. This study changes the image the model is given and checks whether the report follows it.">
 <meta name="author" content="Taresh Bansal">
 <meta name="theme-color" content="#1c1c1e">
 <link rel="canonical" href="https://taresh-bansal.github.io/projects/medical-vlm-grounding/">
 <meta property="og:url" content="https://taresh-bansal.github.io/projects/medical-vlm-grounding/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Taresh Bansal">
-<meta property="og:title" content="Auditing visual grounding in medical VLMs | Taresh Bansal">
-<meta property="og:description" content="Do medical vision-language models actually look at the X-ray? A preregistered audit that changes the image and watches the report, across chest X-ray specialists, medical generalists and a general-purpose model.">
+<meta property="og:title" content="Do medical AI models actually look at the X-ray? | Taresh Bansal">
+<meta property="og:description" content="AI models that write chest X-ray reports are graded on how well the report matches a radiologist&#x27;s. This study changes the image the model is given and checks whether the report follows it.">
 <meta property="og:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Auditing visual grounding in medical VLMs | Taresh Bansal">
-<meta name="twitter:description" content="Do medical vision-language models actually look at the X-ray? A preregistered audit that changes the image and watches the report, across chest X-ray specialists, medical generalists and a general-purpose model.">
+<meta name="twitter:title" content="Do medical AI models actually look at the X-ray? | Taresh Bansal">
+<meta name="twitter:description" content="AI models that write chest X-ray reports are graded on how well the report matches a radiologist&#x27;s. This study changes the image the model is given and checks whether the report follows it.">
 <meta name="twitter:image" content="https://taresh-bansal.github.io/assets/img/og-card.png">
 <meta name="twitter:image:alt" content="Taresh Bansal: AI agents, multimodal AI and AI for science">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c1c1e'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='700' fill='%23b69cff'%3ETB%3C/text%3E%3C/svg%3E">
@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&amp;display=swap">
-<link rel="stylesheet" href="/assets/css/main.css?v=202610181442">
+<link rel="stylesheet" href="/assets/css/main.css?v=202610191148">
 <script src="/assets/js/theme.js?v=202610181442"></script>
 <script type="application/ld+json">
 [
@@ -64,9 +64,9 @@
  {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Auditing visual grounding in medical VLMs | Taresh Bansal",
+  "name": "Do medical AI models actually look at the X-ray? | Taresh Bansal",
   "url": "https://taresh-bansal.github.io/projects/medical-vlm-grounding/",
-  "description": "Do medical vision-language models actually look at the X-ray? A preregistered audit that changes the image and watches the report, across chest X-ray specialists, medical generalists and a general-purpose model.",
+  "description": "AI models that write chest X-ray reports are graded on how well the report matches a radiologist's. This study changes the image the model is given and checks whether the report follows it.",
   "about": {
    "@id": "https://taresh-bansal.github.io/#person"
   }
@@ -96,49 +96,94 @@
   <div class="container post">
     <p class="crumbs"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>Projects</a></p>
     <header class="post-header">
-      <h1 class="post-title">Auditing visual grounding in medical VLMs</h1>
-      <p class="post-description">2026 · In progress</p>
+      <h1 class="post-title">Do medical AI models actually look at the X-ray?</h1>
+      <p class="post-description">2026 · Medical AI · In progress</p>
     </header>
     <article class="case">
       <div class="case-hero">
         <p class="case-kicker">Multimodal AI · Medical imaging</p>
-        <p class="case-headline">Do medical AI models actually look at the X-ray?</p>
-        <p class="case-lead">Models that write chest X-ray reports are graded on how closely their report matches the radiologist&#x27;s. That grade cannot tell whether the model looked at the image: a convincing report can be written from what patients usually look like. This study tests image use directly, by changing the image and watching what happens to the report.</p>
+        <p class="case-headline">A good grade does not prove the model looked</p>
+        <p class="case-lead">AI models that write chest X-ray reports are graded on how closely their report matches the radiologist&#x27;s. A convincing report can be written from what patients usually look like, without reading the image at all. This study tests that directly.</p>
       </div>
-      <section class="research-block"><h2>Problem</h2><p>Report-agreement scores reward a fluent, typical-looking report whether or not it came from the image. A model can score well while largely ignoring the X-ray, and standard evaluation has no way to tell.</p></section>
-      <section class="research-block"><h2>Approach</h2><p>Controlled interventions on the image, with the prompt, decoding and patient held fixed. Each model writes a report under five conditions:</p>
-      <div class="table-wrap">
-      <table class="data-table">
-        <caption class="sr-only">The five image conditions and what each one tests</caption>
-        <thead><tr><th scope="col">Condition</th><th scope="col">What the model is given</th><th scope="col">What it tests</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Real</th><td>The correct X-ray</td><td>Normal behaviour</td></tr>
-          <tr><th scope="row">Swapped</th><td>Another patient&#x27;s X-ray</td><td>Does the report follow the image it was given?</td></tr>
-          <tr><th scope="row">Blank</th><td>A black image</td><td>Behaviour with an uninformative image</td></tr>
-          <tr><th scope="row">Metadata only</th><td>No image; acquisition details as text</td><td>Influence of non-image cues</td></tr>
-          <tr><th scope="row">No input</th><td>Nothing</td><td>The model&#x27;s built-in &ldquo;default patient&rdquo;</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <p>The key measure is <strong>source-following</strong>: the swapped-image report is scored against both the swapped-in patient&#x27;s report and the original patient&#x27;s. A model that reads the image follows the new X-ray; one that ignores it does not. Free-text reports have no single answer to flip, so the method adds two-reference scoring, finding-level analysis and chest X-ray specialists as positive controls. Hypotheses were preregistered, and every scorer was first validated against radiologists&#x27; judgements.</p></section>
-      <section class="research-block"><h2>Findings</h2>
-        <ul>
-          <li><strong>A clear, consistent gradient.</strong> Models range from strongly image-reading to essentially guessing, in the same order on every dataset and scorer: CheXagent, MAIRA-2, MedGemma, Lingshu, Qwen2.5-VL.</li>
-          <li><strong>Specialists read the image more than medical generalists.</strong> The preregistered primary hypothesis, confirmed on all three scorers.</li>
-          <li><strong>Medical generalists carry a &ldquo;sick patient&rdquo; prior.</strong> With no image, Lingshu and MedGemma describe a typical sick inpatient, while the specialists and the general-purpose model default to normal or empty output. That prior earns credit without looking.</li>
-          <li><strong>Standard grading cannot see the difference.</strong> Lingshu scores about as well as MAIRA-2 on conventional agreement, yet earns a large share of its score with no image at all.</li>
-          <li><strong>No model notices when it cannot see.</strong> Every model describes a black image as a normal chest X-ray.</li>
-        </ul>
+
+      <section class="research-block"><h2>Aim</h2><p>Find out whether medical AI models write their reports from the X-ray in front of them, or from habit.</p></section>
+
+      <section class="research-block"><h2>What was done</h2>
+        <ol class="vlm-steps">
+          <li><b>Change only the image.</b> Same patient, same instructions. The model gets the right X-ray, another patient&#x27;s X-ray, a black image, only the scan details as text, or nothing.</li>
+          <li><b>Let five models write a report each time.</b> Two chest X-ray specialists, two general medical models, and one general-purpose model.</li>
+          <li><b>Grade each report twice.</b> Against the right patient&#x27;s report and against the swapped-in patient&#x27;s, using three graders checked against radiologists.</li>
+        </ol>
       </section>
-      <section class="research-block"><h2>Why it matters</h2><p>Recent work audited image use in yes/no medical question answering and named free-text report generation as the open next step. This study takes that step, and shows that a model&#x27;s headline score and its reliance on the image can come apart, which matters wherever these models are trusted to read scans.</p></section>
-      <h2 class="sub-h">Study design</h2>
+
+      <figure class="cpsi-fig vlm-fig">
+        <figcaption><b>Figure 1. How the test works.</b> Everything stays fixed except the image. If the report changes to match a swapped-in X-ray, the model is reading the image.</figcaption>
+        <ol class="vlm-pipe">
+          <li><span class="vp-k">Fixed</span><b>Same patient, same instructions</b></li>
+          <li><span class="vp-k">Change</span><b>The image</b><ul class="vp-chips"><li>Right X-ray</li><li>Someone else&#x27;s X-ray</li><li>Black image</li><li>Scan details only</li><li>No image</li></ul></li>
+          <li><span class="vp-k">Write</span><b>Five AI models write a report</b><ul class="vp-chips"><li>X-ray specialists</li><li>Medical generalists</li><li>General-purpose</li></ul></li>
+          <li><span class="vp-k">Grade</span><b>Compare with two real reports</b><ul class="vp-chips"><li>The right patient&#x27;s</li><li>The swapped-in patient&#x27;s</li></ul></li>
+          <li class="vp-out"><span class="vp-k">Answer</span><b>Does the report follow the image?</b></li>
+        </ol>
+      </figure>
+
+      <h2 class="sub-h">What was found</h2>
+
+      <h3 class="vlm-find">1. Some models read the image. Others barely look.</h3>
+      <figure class="cpsi-fig vlm-fig">
+        <figcaption><b>Figure 2. Does the report follow a swapped-in X-ray?</b> Further right means the report follows the image more. Each line shows the range of likely values. Chest X-ray specialists follow the image most; the general-purpose model does not follow it at all.</figcaption>
+        <div class="vf" role="img" aria-label="Chart: CheXagent follows the swapped image most, then MAIRA-2, then MedGemma and Lingshu, while Qwen2.5-VL does not follow it.">
+          <ol class="vf-rows vf-zero" style="--zero:25"><li><span class="vf-name">CheXagent<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-wh" style="--p:60;--w:35"></span><span class="vf-dot" style="--p:80"></span></span></li><li><span class="vf-name">MAIRA-2<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-wh" style="--p:50;--w:25"></span><span class="vf-dot" style="--p:65"></span></span></li><li><span class="vf-name">MedGemma<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:30;--w:20"></span><span class="vf-dot" style="--p:40"></span></span></li><li><span class="vf-name">Lingshu<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:25;--w:30"></span><span class="vf-dot" style="--p:40"></span></span></li><li><span class="vf-name">Qwen2.5-VL<small>general-purpose</small></span><span class="vf-track"><span class="vf-wh" style="--p:5;--w:25"></span><span class="vf-dot" style="--p:15"></span></span></li></ol>
+          <div class="vf-axis"><span style="left:25%">Ignores the image</span><span class="vf-axis-r">Follows the image &rarr;</span></div>
+        </div>
+      </figure>
+
+      <h3 class="vlm-find">2. Some models earn most of their grade without the image.</h3>
+      <figure class="cpsi-fig vlm-fig">
+        <figcaption><b>Figure 3. How much of the grade is earned with no image at all?</b> Each dot is one of the three datasets. The specialists earn nothing without the image. The general-purpose model earns all of its grade without it.</figcaption>
+        <div class="vf" role="img" aria-label="Chart: share of the grade earned with no image. CheXagent and MAIRA-2 earn none; Lingshu earns a substantial share; MedGemma earns most; Qwen2.5-VL earns all of it.">
+          <ol class="vf-rows"><li><span class="vf-name">CheXagent<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-dot" style="--p:0"></span></span></li><li><span class="vf-name">MAIRA-2<small>X-ray specialist</small></span><span class="vf-track"><span class="vf-dot" style="--p:0"></span></span></li><li><span class="vf-name">MedGemma<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:78;--w:18"></span><span class="vf-dot" style="--p:78"></span><span class="vf-dot" style="--p:84"></span><span class="vf-dot" style="--p:96"></span></span></li><li><span class="vf-name">Lingshu<small>medical generalist</small></span><span class="vf-track"><span class="vf-wh" style="--p:39;--w:27"></span><span class="vf-dot" style="--p:39"></span><span class="vf-dot" style="--p:64"></span><span class="vf-dot" style="--p:66"></span></span></li><li><span class="vf-name">Qwen2.5-VL<small>general-purpose</small></span><span class="vf-track"><span class="vf-wh" style="--p:97;--w:3"></span><span class="vf-dot" style="--p:97"></span><span class="vf-dot" style="--p:100"></span></span></li></ol>
+          <div class="vf-axis"><span style="left:0">None</span><span style="left:50%">Half</span><span class="vf-axis-r">All</span></div>
+        </div>
+      </figure>
+
+      <h3 class="vlm-find">3. The usual grade cannot tell them apart.</h3>
+      <figure class="cpsi-fig vlm-fig">
+        <figcaption><b>Figure 4. The standard grade, side by side.</b> A general medical model scores almost the same as a chest X-ray specialist, and the same again when it is given no image at all.</figcaption>
+        <div class="vf" role="img" aria-label="Chart: on the standard grade, MAIRA-2 with the real X-ray and Lingshu with or without an image score almost the same.">
+          <ol class="vf-rows"><li><span class="vf-name">MAIRA-2<small>with the real X-ray</small></span><span class="vf-track vf-bars"><span class="vf-bar" style="width:45.3%"></span></span></li><li><span class="vf-name">Lingshu<small>with the real X-ray</small></span><span class="vf-track vf-bars"><span class="vf-bar" style="width:43%"></span></span></li><li><span class="vf-name">Lingshu<small>with no image at all</small></span><span class="vf-track vf-bars"><span class="vf-bar vf-bar-ghost" style="width:43%"></span></span></li></ol>
+          <div class="vf-axis"><span style="left:0">Worse</span><span class="vf-axis-r">Better match to the radiologist &rarr;</span></div>
+        </div>
+      </figure>
+
+      <h3 class="vlm-find">4. With nothing to see, models invent a patient.</h3>
+      <figure class="cpsi-fig vlm-fig">
+        <figcaption><b>Figure 5. What each model writes when it cannot see.</b> General medical models describe a typical sick patient. No model says the image is blank.</figcaption>
+        <div class="table-wrap">
+        <table class="data-table vlm-table">
+          <caption class="sr-only">What each model writes for a black image and for no image</caption>
+          <thead><tr><th scope="col">Model</th><th scope="col">Given a black image</th><th scope="col">Given no image</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">CheXagent<small>X-ray specialist</small></th><td>A normal report</td><td>Says nothing is described</td></tr>
+            <tr><th scope="row">MAIRA-2<small>X-ray specialist</small></th><td>Stock phrases from its training data</td><td>Needs an image</td></tr>
+            <tr><th scope="row">MedGemma<small>medical generalist</small></th><td>A normal report</td><td><span class="vlm-flag">A sick patient</span> with an enlarged heart</td></tr>
+            <tr><th scope="row">Lingshu<small>medical generalist</small></th><td>A normal report</td><td><span class="vlm-flag">A sick patient</span> with an enlarged heart</td></tr>
+            <tr><th scope="row">Qwen2.5-VL<small>general-purpose</small></th><td>A normal report</td><td>A normal report</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </figure>
+
+      <section class="research-block"><h2>Why it matters</h2><p>A high score can hide a model that is guessing. Before these models are trusted to read scans, they should be tested on whether they look, not only on whether they sound right. This study gives a simple way to do that, and was planned and registered before any analysis.</p></section>
+
+      <h2 class="sub-h">Study at a glance</h2>
       <dl class="facts">
-        <dt>Models</dt><dd>Chest X-ray specialists (CheXagent, MAIRA-2); medical generalists (MedGemma, Lingshu); general-purpose base model (Qwen2.5-VL)</dd>
-        <dt>Data</dt><dd>MIMIC-CXR, IU X-ray and CheXpert Plus; scorer validation on ReXVal</dd>
-        <dt>Scorers</dt><dd>RadGraph F1 (primary), an LLM judge, and CheXbert, each validated against radiologists</dd>
-        <dt>Design</dt><dd>Two preregistered studies; deterministic decoding; everything except the image held fixed</dd>
+        <dt>Models</dt><dd>CheXagent and MAIRA-2 (chest X-ray specialists); MedGemma and Lingshu (general medical models); Qwen2.5-VL (general-purpose)</dd>
+        <dt>Data</dt><dd>Three public chest X-ray collections: MIMIC-CXR, IU X-ray and CheXpert Plus</dd>
+        <dt>Grading</dt><dd>Three independent graders, each first checked against radiologists&#x27; judgements</dd>
         <dt>Status</dt><dd>Both studies complete; robustness checks and paper in progress</dd>
       </dl>
+      <p class="vlm-note">Figures 2 and 4 use the hospital dataset (MIMIC-CXR); Figure 3 covers all three datasets with the main grader. On every dataset, the two specialists and MedGemma follow the image, while Lingshu and Qwen2.5-VL do not.</p>
       <nav class="pager" aria-label="More case studies"><a href="/projects/"><svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4"/></svg>All projects</a><a href="/projects/iomt-intrusion-detection/">Drift-resilient IoMT intrusion detection<svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a></nav>
     </article>
   </div>

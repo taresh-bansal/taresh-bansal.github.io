@@ -350,6 +350,50 @@ html.cv-card .cv-mobile{display:block}
 }
 
 /* ---------- print ---------- */
+
+/* ---------- medical VLM case study figures ---------- */
+.vlm-steps{margin:.35rem 0 0;padding-left:1.2rem}
+.vlm-steps li{margin:.3rem 0}
+.vlm-steps b{color:var(--text);font-weight:500}
+.vlm-fig figcaption{margin-bottom:1.1rem}
+.case .vlm-find{font-size:1.05rem;font-weight:500;color:var(--text);margin:1.6rem 0 .1rem}
+.vlm-pipe{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1.6rem}
+.vlm-pipe>li{position:relative;padding:.7rem .75rem;border:1px solid var(--divider);border-radius:10px;background:var(--card-2);font-size:.86rem;color:var(--text-2);line-height:1.35}
+.vlm-pipe>li b{display:block;color:var(--text);font-weight:500;font-size:.9rem;margin-bottom:.35rem}
+.vlm-pipe>li:not(:last-child)::after{content:"";position:absolute;right:-1.25rem;top:50%;width:.9rem;height:.9rem;transform:translateY(-50%);background:var(--accent);clip-path:polygon(0 25%,55% 25%,55% 0,100% 50%,55% 100%,55% 75%,0 75%)}
+.vlm-pipe .vp-out{border:1.5px dashed var(--accent);background:var(--tint)}
+.vp-k{display:block;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:.15rem}
+.vp-chips{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.25rem}
+.vp-chips li{font-size:.78rem;padding:.15rem .45rem;border:1px solid var(--tint-line);border-radius:6px;background:var(--card);color:var(--text-2)}
+.vf-rows{list-style:none;padding:0;margin:0;display:grid;gap:.55rem;position:relative}
+.vf-rows li{display:grid;grid-template-columns:9.5rem 1fr;align-items:center;gap:.9rem;margin:0}
+.vf-name{font-size:.92rem;color:var(--text);line-height:1.2}
+.vf-name small{display:block;font-size:.74rem;color:var(--muted)}
+.vf-track{position:relative;height:1.6rem;border-radius:4px;background:linear-gradient(90deg,var(--divider-soft) 1px,transparent 1px) 0 0/25% 100%}
+.vf-zero .vf-track::before{content:"";position:absolute;left:calc(.4rem + (100% - .8rem) * var(--zero) / 100);top:-.3rem;bottom:-.3rem;border-left:1.5px dashed var(--muted)}
+.vf-wh{position:absolute;top:50%;height:2px;left:calc(.4rem + (100% - .8rem) * var(--p) / 100);width:calc((100% - .8rem) * var(--w) / 100);transform:translateY(-50%);background:var(--accent);border-radius:2px}
+.vf-dot{position:absolute;top:50%;left:calc(.4rem + (100% - .8rem) * var(--p) / 100);width:.8rem;height:.8rem;transform:translate(-50%,-50%);border-radius:50%;background:var(--accent);box-shadow:0 0 0 2px var(--card)}
+.vf-bars{background:none}
+.vf-bar{position:absolute;left:0;top:.2rem;bottom:.2rem;background:var(--accent);border-radius:0 4px 4px 0}
+.vf-bar-ghost{background:repeating-linear-gradient(135deg,var(--accent) 0 3px,transparent 3px 7px);border:1.5px solid var(--accent)}
+.vf-axis{position:relative;height:1.3rem;margin:.5rem 0 0 10.4rem;font-size:.74rem;color:var(--muted)}
+.vf-axis span{position:absolute;top:0;white-space:nowrap}
+.vf-axis span[style*="left:0"]{transform:none}
+.vf-axis span[style*="left:25%"],.vf-axis span[style*="left:50%"]{transform:translateX(-50%)}
+.vf-axis .vf-axis-r{right:0}
+.vlm-table th small{display:block;font-size:.74rem;color:var(--muted);font-weight:400}
+.vlm-table th[scope="row"]{color:var(--text);font-weight:500;font-size:.93rem}
+.vlm-flag{color:var(--text);font-weight:500;border-bottom:2px solid var(--accent)}
+.vlm-note{font-size:.85rem;color:var(--muted);margin-top:1rem}
+@media (max-width:767px){
+  .vlm-pipe{grid-template-columns:1fr;gap:1.4rem}
+  .vlm-pipe>li:not(:last-child)::after{right:auto;left:50%;top:auto;bottom:-1.15rem;transform:translateX(-50%) rotate(90deg)}
+  .vp-chips{flex-direction:row;flex-wrap:wrap}
+  .vf-rows li{grid-template-columns:6.6rem 1fr;gap:.6rem}
+  .vf-axis{margin-left:7.2rem}
+  .vf-axis span[style*="left:25%"]{display:none}
+}
+
 @media print{
   :root,html[data-theme="light"]{--pub-bg:#fff;--pub-line:#bbb;--topic:#1b7690;--bg:#fff;--card:#fff;--card-2:#fff;--divider:#ccc;--divider-soft:#ddd;--text:#000;--text-2:#222;--muted:#555;--accent:#4b2296;--accent-hover:#4b2296;--on-accent:#fff;--tint:#fff;--tint-soft:#fff;--tint-line:#bbb;--tint-line-strong:#999;--bar:#999;--card-inset:none;--shadow:none;--shadow-hover:none}
   body{font-size:11pt}
